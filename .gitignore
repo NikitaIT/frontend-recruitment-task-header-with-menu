@@ -6,3 +6,4 @@
 /**/debug.log
 *.min.css
 *.min.js
+/.env
