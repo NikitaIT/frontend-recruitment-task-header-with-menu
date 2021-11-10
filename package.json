@@ -15,7 +15,8 @@
 	"license": "ISC",
 	"scripts": {
 		"start": "npx gulp",
-		"build": "npx gulp build"
+		"build": "npx gulp build",
+		"test-after-start": "pa11y --runner axe --runner htmlcs http://localhost:3000"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.15.8",
@@ -35,6 +36,7 @@
 		"gulp-noop": "^1.0.1",
 		"gulp-postcss": "^9.0.1",
 		"gulp-rsync": "0.0.9",
+		"pa11y": "^6.1.0",
 		"postcss": "^8.3.11",
 		"postcss-focus-visible": "^6.0.1",
 		"postcss-import": "^14.0.2",
