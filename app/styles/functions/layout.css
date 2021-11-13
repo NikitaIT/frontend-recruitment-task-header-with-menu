@@ -1,0 +1,5 @@
+@layer components {
+	.auto-layout {
+		@apply mx-4 sm:mx-6 md:mx-8 lg:max-w-5xl lg:mx-auto;
+	}
+}
