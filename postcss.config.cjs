@@ -8,18 +8,20 @@ const stage = {
 	embraced: 3, // This idea is becoming part of the web. Candidate Recommendation
 	standardized: 4, // This idea is part of the web. Recommendation
 };
-
+const preserve = true;
 module.exports = {
 	plugins: [
 		require("postcss-import"), // css @import
 		require("postcss-focus-visible"),
+		require("tailwindcss/nesting")(require("postcss-nesting")),
+		require("tailwindcss"),
 		require("postcss-preset-env")({
 			stage: stage.aspirational,
-			preserve: false,
-			"nesting-rules": true,
+			preserve,
+			"nesting-rules": false,
 			autoprefixer: { grid: "autoplace" },
 		}),
-		require("tailwindcss"),
+		// require("postcss-css-variables")({ preserve }),
 		require("cssnano")({
 			preset: ["default", { discardComments: { removeAll: true } }],
 		}),

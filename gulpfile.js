@@ -157,7 +157,15 @@ function startwatch() {
 		{ usePolling: true },
 		styles
 	);
-	watch([`app/parts/**/*.html`], { usePolling: true }, utilStyles);
+	watch(
+		[
+			`app/parts/**/*.html`,
+			"./app/styles/utils.css",
+			"./app/functions/**/*.css",
+		],
+		{ usePolling: true },
+		utilStyles
+	);
 	watch(
 		["app/js/**/*.js", "app/js/**/*.mjs", "!app/js/**/*.min.js"],
 		{ usePolling: true },

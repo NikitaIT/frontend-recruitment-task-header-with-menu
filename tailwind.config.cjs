@@ -1,6 +1,19 @@
+const {
+	colors: { white, black },
+} = require("tailwindcss/defaultTheme");
+
 module.exports = {
 	mode: "jit",
-	purge: ["./app/parts/**/*.html", "./app/styles/utils.css"],
+	corePlugins: {
+		// ie11
+		backgroundOpacity: false,
+		textOpacity: false,
+	},
+	purge: [
+		"./app/parts/**/*.html",
+		"./app/styles/functions/**/*.css",
+		"./app/styles/utils.css",
+	],
 	theme: {
 		fontSize: {
 			xs: [".67rem", ""], // 8pt 10.67px (2), -cost, item name
@@ -48,6 +61,28 @@ module.exports = {
 				'"Noto Color Emoji"',
 			],
 		},
+		colors: {
+			white,
+			black,
+			gray: {
+				// sorted by gray-scale
+				200: "#f7f7f7", // menu item hover
+				300: "#eeeeee", // popup border, content splitter line
+				400: "#d3d3d3", // default border
+				500: "#cbcbcb", // input border
+			},
+			accent: {
+				// now in red-pink scale
+				light: "#ecc7d0",
+				DEFAULT: "#ea2260",
+				// dark: "#ea2260",
+			},
+		},
+		borderColor: (theme) => ({
+			...theme("colors"),
+			DEFAULT: theme("colors.gray.400", "currentColor"),
+		}),
+		extend: {},
 	},
 	darkMode: false,
 	variants: { extend: {} },
