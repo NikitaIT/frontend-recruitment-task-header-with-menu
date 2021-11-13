@@ -1,0 +1,17 @@
+@layer utilities {
+	/* how to use: set relative on container */
+	/* br - bottom,right */
+	.br-badge {
+		@apply absolute leading-none bottom-0 right-0 rounded-full inline-flex items-center justify-center translate-br;
+	}
+	.translate-br {
+		/* ie support */
+		transform: translateX(50%) translateY(50%);
+		@apply transform translate-x-1/2 translate-y-1/2;
+	}
+	/* mbr - margin-bottom,right */
+	.mbr-text-xs-p-rect {
+		/* shold be calc from text */
+		@apply mb-2.5 mr-2.5;
+	}
+}
