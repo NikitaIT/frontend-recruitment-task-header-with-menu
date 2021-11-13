@@ -1,0 +1,12 @@
+@media screen(lg) {
+	.lg\:group-borders-x-2 > :not([hidden]) ~ :not([hidden]) > .group {
+		/* padding-right: 2px;
+		padding-left: 2px; */
+		border-right-width: 2px;
+		border-left-width: 2px;
+	}
+	.lg\:group-borders-x-2 > :not([hidden]) > .group {
+		/* padding-left: 2px; */
+		border-left-width: 2px;
+	}
+}
