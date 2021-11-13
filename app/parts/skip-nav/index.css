@@ -1,0 +1,24 @@
+.gh-acc-a:focus {
+	z-index: 9999;
+	position: absolute;
+	top: 500px;
+	display: block;
+}
+.gh-acc-a {
+	display: block;
+	font-size: 11px;
+	text-decoration: underline;
+	background-color: #fff7ed;
+	white-space: nowrap;
+	z-index: -1;
+	padding: 4px;
+	position: static;
+}
+
+.gh-acc-exp-div {
+	position: absolute;
+	top: -500px;
+	width: 1px;
+	height: 1px;
+	overflow: visible;
+}
