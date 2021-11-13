@@ -1,0 +1,8 @@
+@layer utilities {
+	.text-on-accent-light {
+		@apply text-white bg-accent-light;
+	}
+	.text-xs-p-rect {
+		@apply text-xs px-1.5 py-1;
+	}
+}
