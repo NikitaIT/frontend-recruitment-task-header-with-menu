@@ -7,3 +7,4 @@
 *.min.css
 *.min.js
 /.env
+/**/dist/**
