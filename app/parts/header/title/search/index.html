@@ -1,0 +1,54 @@
+<form role="search" class="relative md:h-full text-base" action="#">
+	<!-- 
+		Label have full size - As a TremorUser, 
+		I expect the click area to be larger than the real one.
+  -->
+	<label
+		for="search-products"
+		class="
+			flex
+			md:justify-end md:items-center md:absolute md:top-0 md:h-full md:w-full
+		"
+	>
+		<span class="sr-only">Co chcesz kupić?</span>
+		<span class="w-full md:w-3/4 flex flex-col relative">
+			<input
+				id="search-products"
+				type="search"
+				class="h-8 pr-5 pl-1 hide-clear-button"
+				placeholder="Co chcesz kupić?"
+				name="search"
+			/>
+			<span
+				class="
+					before:absolute
+					before:right-0
+					before:bottom-0
+					before:w-full
+					before:border-b
+					before:border-black
+					before:pointer-events-none
+					before:transition-colors
+					hover:before:border-b-2
+				"
+			>
+			</span>
+		</span>
+	</label>
+	<div class="h-full w-full flex items-center justify-end">
+		<div class="md:relative md:h-8">
+			<div class="absolute right-0 top-0 h-full">
+				<button
+					class="text-accent-light h-full w-8 flex justify-end items-start"
+					type="submit"
+					value="Search"
+				>
+					<span class="block w-4 h-4 mt-1">
+						<!--#include virtual="/parts/svg/inputs/search-icon.svg" -->
+					</span>
+					<span class="sr-only">search</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</form>
