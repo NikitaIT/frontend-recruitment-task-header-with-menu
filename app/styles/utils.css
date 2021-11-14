@@ -4,3 +4,54 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+	.visible-reset {
+		@apply visible overflow-visible;
+		max-width: none;
+		max-height: none;
+	}
+	.visible-sg {
+		@apply invisible max-h-0 max-w-0 overflow-hidden;
+	}
+}
+
+@media screen(md) {
+	.dropdown {
+		position: relative;
+	}
+	.dropdown__content {
+		@apply absolute visible-sg;
+	}
+
+	/* first-level */
+	.dropdown {
+		& > .dropdown__content {
+			@apply enter-active-slow enter-from-y;
+		}
+		&:hover,
+		&:focus-within {
+			& > .dropdown__content {
+				@apply enter-to-y visible-reset;
+			}
+			& a {
+				@apply opacity-100;
+			}
+		}
+	}
+	/* second-level */
+	.dropdown__content .dropdown {
+		& > .dropdown__content {
+			@apply enter-active-fast enter-from-x;
+		}
+		&:hover,
+		&:focus-within {
+			& > .dropdown__content {
+				@apply enter-to-x visible-reset;
+			}
+			& a {
+				@apply opacity-100;
+			}
+		}
+	}
+}

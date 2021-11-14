@@ -1,0 +1,34 @@
+.order__wrapper {
+	@apply px-3 h-20 w-full flex flex-col flex-nowrap;
+}
+
+.order__price {
+	@apply text-sm leading-normal;
+}
+.order__price_promo {
+	@apply text-accent text-xs;
+}
+
+.order__desctiption {
+	@apply uppercase font-bold text-sm leading-tight;
+}
+
+.order__desctiption_promo {
+	@apply text-accent;
+}
+
+.order__options {
+	@apply mt-auto flex justify-between;
+}
+
+.order__amount {
+	@apply text-sm leading-tight;
+}
+
+.order__amount_count {
+	@apply ml-1 px-2 py-1 leading-tight bg-white border border-gray-300 text-sm;
+}
+
+.order__button {
+	cursor: pointer;
+}
