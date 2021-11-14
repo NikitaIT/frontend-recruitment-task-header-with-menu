@@ -1,0 +1,40 @@
+/* 
+TODO: Support ie11 - open menu by click
+
+.dropdown__content {
+	display: none;
+}
+
+.navigation {
+	display: flex;
+	flex-wrap: nowrap;
+}
+ul {
+	position: relative;
+}
+.menu-item-checkbox {
+	&:checked {
+		& + label .menu-checkbox--closed {
+			display: none;
+		}
+		& ~ ul {
+			display: block;
+			position: relative;
+			top: 0px;
+			right: 0;
+		}
+		& + label {
+			background: red;
+			position: absolute;
+			top: 0;
+		}
+	}
+	&:not(:checked) {
+		& + label .menu-checkbox--opened {
+			display: none;
+		}
+		& ~ ul {
+			display: none;
+		}
+	}
+} */

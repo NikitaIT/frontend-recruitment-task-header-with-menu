@@ -1,0 +1,42 @@
+@import "./button.css";
+
+.all-first-upper:first-letter,
+.all-first-upper :first-letter {
+	text-transform: uppercase;
+}
+.navigation {
+	/* justify-center - if items count is small, like 3 */
+	@apply justify-center flex-wrap;
+}
+.navigation__link {
+	/* flex-grow only, w-auto - required by disign */
+	@apply flex-grow w-auto;
+	/* avoid full-size if wrap */
+	max-width: 10rem;
+}
+.interactive-control {
+	@apply w-full h-full block  whitespace-nowrap;
+}
+.interactive-control {
+	@apply hover:text-accent-light focus:text-accent;
+}
+input[type="checkbox"]:hover ~ .interactive-control {
+	@apply text-accent-light;
+}
+input[type="checkbox"]:focus ~ .interactive-control {
+	@apply text-accent;
+}
+
+@media screen(lg) {
+	.interactive-control {
+		/* leading-xxx */
+		line-height: 70px;
+	}
+}
+
+@media screen(md) {
+	.interactive-control {
+		/* leading-xxx */
+		line-height: 50px;
+	}
+}

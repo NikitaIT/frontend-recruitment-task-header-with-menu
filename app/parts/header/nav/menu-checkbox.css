@@ -1,0 +1,25 @@
+[for="menu-checkbox"] {
+	@apply z-20;
+}
+#menu-checkbox {
+	&:checked {
+		& + .cb-label-selector label {
+			/* border-b-4 */
+			@apply mb-1 border-b-0;
+			& .menu-checkbox--closed {
+				@apply hidden;
+			}
+		}
+		& ~ ul {
+			@apply fixed z-10 top-0 right-0 w-screen h-screen;
+		}
+	}
+	&:not(:checked) {
+		& + .cb-label-selector label .menu-checkbox--opened {
+			@apply hidden;
+		}
+		& ~ ul {
+			@apply hidden;
+		}
+	}
+}

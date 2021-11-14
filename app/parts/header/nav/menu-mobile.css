@@ -1,0 +1,14 @@
+.dropdown__item >,
+.navigation__link > {
+	& label,
+	& a {
+		@apply pl-8 leading-9 cursor-pointer;
+	}
+}
+
+.navigation__link > {
+	& label,
+	& a {
+		@apply w-full h-full block;
+	}
+}

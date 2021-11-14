@@ -1,0 +1,52 @@
+:root {
+	--transition: 280ms all 120ms ease-out;
+}
+
+.dropdown__item {
+	@apply hover:bg-gray-200;
+}
+
+.dropdown__item > label,
+.dropdown__item > a {
+	transition: var(--transition);
+	@apply text-black block pl-8 leading-9 hover:bg-gray-200 focus:bg-gray-300;
+}
+.dropdown {
+	& > .dropdown__content {
+		@apply bg-white;
+	}
+}
+@media screen(md) {
+	.dropdown {
+		position: relative;
+		& > .dropdown__content {
+			@apply absolute left-0 invisible opacity-30 py-3 border-gray-300 border-4 bg-white;
+
+			& .dropdown__content {
+				@apply left-full;
+			}
+
+			top: calc(100% - 0.25rem);
+
+			transition: var(--transition);
+			transform: rotateX(-90deg) translateX(-50%);
+			transform-origin: top center;
+
+			min-width: 23ch;
+		}
+
+		&:hover,
+		&:focus-within {
+			& > .dropdown__content {
+				transform: rotateX(0) translateX(0%);
+				@apply opacity-100 visible;
+				& .dropdown__content {
+					@apply -mt-12;
+				}
+				& a {
+					@apply opacity-100;
+				}
+			}
+		}
+	}
+}
