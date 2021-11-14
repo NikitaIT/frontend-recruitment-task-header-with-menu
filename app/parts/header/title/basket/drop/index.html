@@ -2,9 +2,88 @@
 	id="basket"
 	tabindex="-1"
 	role="dialog"
-	class="hidden"
+	class="hidden z-50 bg-white h-full py-4"
+	aria-labelledby="basket-dialog-title"
 	action="#"
 >
+	<div class="">
+		<div>
+			<div id="basket-dialog-title" class="text-sm">
+				Produkty w koszyku: <strong>2</strong>
+			</div>
+			<div class="text-base">Kwota do zapłaty: <strong>240 PLN</strong></div>
+		</div>
+		<hr />
+		<ul class="">
+			<li>
+				<figure class="order__options">
+					<img
+						src="images/dist/miniatura.png"
+						width="59px"
+						height="78px"
+						alt="Biustonosz"
+					/>
+					<figcaption class="order__wrapper">
+						<div class="order__desctiption">Biustonosz push-up line mos 12</div>
+						<div class="order__price">59.99 ZL</div>
+						<div class="">
+							<div class="">
+								<p>ilość <span class="">1</span></p>
+							</div>
+							<div class="float-right">
+								<button class="inline-block w-4 h-4">
+									<!--#include virtual="/parts/svg/edit/pencil.svg" -->
+								</button>
+								<button class="inline-block w-4 h-4">
+									<!--#include virtual="/parts/svg/edit/bin.svg" -->
+								</button>
+							</div>
+						</div>
+					</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure class="order__options">
+					<img
+						src="images/dist/miniatura.png"
+						width="59px"
+						height="78px"
+						alt="Biustonosz"
+					/>
+					<figcaption class="order__wrapper">
+						<fieldset>
+							<legend>
+								<span class="order__desctiption order__desctiption_promo"
+									>Biustonosz push-up line re 6</span
+								>
+								<!-- <s> - "no longer relevant" -->
+								<span class="order__price"
+									>59.99 ZL <s class="order__price_promo">109.00 ZL</s></span
+								>
+							</legend>
+							<div class="">
+								<div class="">
+									<p>
+										ilość <input type="number" class="w-10 h-10" value="2" />
+									</p>
+								</div>
+								<div class="float-right">
+									<button class="inline-block w-4 h-4">
+										<!--#include virtual="/parts/svg/edit/pencil.svg" -->
+									</button>
+									<button class="inline-block w-4 h-4">
+										<!--#include virtual="/parts/svg/edit/bin.svg" -->
+									</button>
+								</div>
+							</div>
+						</fieldset>
+					</figcaption>
+				</figure>
+			</li>
+		</ul>
+		<hr />
+		<button type="submit">Zobacz koszyk</button>
+	</div>
 	<a role="button" class="sr-only focus:not-sr-only" href="#open-basket-button"
 		>close</a
 	>
