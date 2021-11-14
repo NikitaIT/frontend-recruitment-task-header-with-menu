@@ -1,0 +1,8 @@
+/* defaults for ie11 */
+:root {
+	--tw-space-x-reverse: 0;
+	--tw-border-opacity: 1;
+}
+
+/* md -1px */
+@custom-media --viewport-mobile (width <= 767px);

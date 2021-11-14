@@ -1,0 +1,7 @@
+@layer utilities {
+	.translate-center {
+		/* ie support */
+		transform: translateX(-50%);
+		@apply transform -translate-x-1/2;
+	}
+}

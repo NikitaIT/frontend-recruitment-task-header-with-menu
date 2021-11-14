@@ -2,6 +2,9 @@
 	.text-on-accent-light {
 		@apply text-white bg-accent-light;
 	}
+	.text-on-accent {
+		@apply text-white bg-accent;
+	}
 	.text-xs-p-rect {
 		@apply text-xs px-1.5 py-1;
 	}
