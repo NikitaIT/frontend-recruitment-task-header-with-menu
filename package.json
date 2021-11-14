@@ -19,7 +19,8 @@
 		"build": "npx gulp build",
 		"test-after-start": "pa11y --runner axe --runner htmlcs http://localhost:3000",
 		"predeploy": "npm run build",
-		"deploy": "npx gh-pages -d dist"
+		"deploy": "npx gh-pages -d dist",
+		"publish": "npm run predeploy && npm run deploy"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.15.8",
