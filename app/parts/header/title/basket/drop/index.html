@@ -89,7 +89,19 @@
 		<hr />
 		<button type="submit">Zobacz koszyk</button>
 	</form>
-	<a role="button" class="sr-only focus:not-sr-only" href="#open-basket-button"
-		>close</a
+	<!-- TODO: Reuse button as component, dont forgot about sr-only -->
+	<a
+		role="button"
+		class="flex w-full justify-center md:sr-only md:focus:not-sr-only"
+		href="#open-basket-button"
 	>
+		<span
+			class="fixed bottom-9 text-accent border-b-4 rounded-full bg-white p-4"
+		>
+			<span class="sr-only">close basket</span>
+			<span class="menu-checkbox--opened">
+				<!--#include virtual="/parts/svg/button/screen-button-x.svg" -->
+			</span>
+		</span>
+	</a>
 </div>

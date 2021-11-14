@@ -1,3 +1,20 @@
+@media (--viewport-mobile) {
+	[id="basket"] {
+		/* like drop-group reset, but visible (need tab nav by <a>) */
+		@apply max-h-0 max-w-0 overflow-hidden;
+	}
+
+	/* for debug  */
+	[id="basket"],
+	[id="basket"]:focus-within,
+	[id="basket"]:focus {
+		/* like drop-group restore, but visible (need tab nav by <a>) */
+		@apply fixed top-0 left-0 w-full h-full overflow-visible;
+		max-width: none;
+		max-height: none;
+	}
+}
+
 .order__wrapper {
 	@apply px-3 h-20 w-full flex flex-col flex-nowrap;
 }
