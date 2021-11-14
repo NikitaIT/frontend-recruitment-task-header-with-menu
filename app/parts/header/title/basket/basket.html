@@ -1,0 +1,36 @@
+<a
+	id="open-basket-button"
+	role="button"
+	class="block w-auto group"
+	href="#basket"
+	aria-haspopup="dialog"
+>
+	<span class="sr-only">Open</span>
+	<!--
+		UserStory: As a Customer, I want listen polite alert after "add/remove to/from basket", so that confirm my action.
+		Impl: Use aria-live on add to basket, remove if we have confirm dialog after each "add to bug".
+	 -->
+	<span aria-live="polite" aria-atomic="true" class="flex">
+		<span
+			class="
+				font-bold
+				text-base
+				order-last
+				leading-none
+				group-hover:text-accent
+				group-focus:text-accent-light
+			"
+			>Twój koszyk</span
+		>
+		<span class="sr-only">with</span>
+		<span class="relative inline-block h-8 w-7 mbr-text-xs-p-rect md:mb-0">
+			<span class="group-hover:text-accent group-focus:text-accent-light">
+				<!--#include virtual="/parts/svg/basket-icon.svg" -->
+			</span>
+			<span class="font-black text-xs-p-rect text-on-accent-light br-badge"
+				>2</span
+			>
+		</span>
+		<span class="sr-only">items</span>
+	</span>
+</a>
