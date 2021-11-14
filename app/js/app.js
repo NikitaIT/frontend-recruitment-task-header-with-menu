@@ -1,6 +1,11 @@
+import { syncHash } from "./syncHash.mjs";
 import { loadCss } from "./loadCss.mjs";
+import "focus-visible";
+const logger = console;
 document.addEventListener("DOMContentLoaded", () => {
 	loadIe11CSS();
+	// initDropdowns();
+	// syncHash(logger);
 });
 
 function loadIe11CSS() {
