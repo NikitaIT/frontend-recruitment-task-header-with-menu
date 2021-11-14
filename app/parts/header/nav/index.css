@@ -7,6 +7,9 @@
 .navigation {
 	/* justify-center - if items count is small, like 3 */
 	@apply justify-center flex-wrap;
+	& label {
+		@apply cursor-pointer;
+	}
 }
 .navigation__link {
 	/* flex-grow only, w-auto - required by disign */
@@ -15,7 +18,7 @@
 	max-width: 10rem;
 }
 .interactive-control {
-	@apply w-full h-full block  whitespace-nowrap;
+	@apply w-full h-full block  whitespace-nowrap  cursor-pointer;
 }
 .interactive-control {
 	@apply hover:text-accent-light focus:text-accent;

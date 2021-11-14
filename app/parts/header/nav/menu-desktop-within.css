@@ -1,5 +1,5 @@
 :root {
-	--transition: 280ms all 120ms ease-out;
+	--transition: 280ms color, background-color 120ms ease-out;
 }
 
 .dropdown__item {
