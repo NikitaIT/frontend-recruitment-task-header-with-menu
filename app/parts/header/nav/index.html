@@ -5,7 +5,13 @@
 >
 	<!--#include virtual="/parts/header/nav/button.html" -->
 	<ul class="navigation text-base font-bold uppercase all-first-upper md:flex">
-		<li class="navigation__link dropdown">
+		<li
+			class="
+				navigation__link
+				dropdown
+				md:drop-group md:hover:drop-group md:focus-within:drop-group
+			"
+		>
 			<input
 				type="checkbox"
 				id="Kategorie"
@@ -19,8 +25,21 @@
 				<span class="menu-checkbox--closed hidden">&#x261B;</span>
 				Kategorie
 			</label>
-			<ul class="normal-case font-normal bg-white dropdown__content">
-				<li class="dropdown__item dropdown">
+			<ul
+				class="
+					normal-case
+					font-normal
+					dropdown__content
+					drop-box drop-me drop-me-y
+				"
+			>
+				<li
+					class="
+						drop-box__row
+						dropdown
+						md:drop-group md:hover:drop-group md:focus-within:drop-group
+					"
+				>
 					<input
 						type="checkbox"
 						id="Biustonosze"
@@ -31,17 +50,17 @@
 						<span class="menu-checkbox--closed hidden">&#x261B;</span>
 						Biustonosze
 					</label>
-					<ul class="dropdown__content">
-						<li class="dropdown__item"><a href="#">Bardotka</a></li>
-						<li class="dropdown__item"><a href="#">Minimizer</a></li>
-						<li class="dropdown__item"><a href="#">Multiway</a></li>
-						<li class="dropdown__item"><a href="#">Push-up</a></li>
-						<li class="dropdown__item"><a href="#">Soft</a></li>
-						<li class="dropdown__item"><a href="#">Sportowe</a></li>
-						<li class="dropdown__item"><a href="#">usztywniane</a></li>
+					<ul class="dropdown__content drop-box drop-me drop-me-x">
+						<!--#include virtual="/parts/header/nav/drop-box/index.html" -->
 					</ul>
 				</li>
-				<li class="dropdown__item dropdown">
+				<li
+					class="
+						drop-box__row
+						dropdown
+						md:drop-group md:hover:drop-group md:focus-within:drop-group
+					"
+				>
 					<input
 						type="checkbox"
 						id="Biustonosze3"
@@ -52,21 +71,27 @@
 						<span class="menu-checkbox--closed hidden">&#x261B;</span>
 						Biustonosze3
 					</label>
-					<ul class="bg-white dropdown__content">
-						<li class="dropdown__item"><a href="#">Bardotka3</a></li>
-						<li class="dropdown__item"><a href="#">Minimizer3</a></li>
-						<li class="dropdown__item"><a href="#">Multiway3</a></li>
-						<li class="dropdown__item"><a href="#">Push-up3</a></li>
-						<li class="dropdown__item"><a href="#">Soft3</a></li>
-						<li class="dropdown__item"><a href="#">Sportowe3</a></li>
-						<li class="dropdown__item"><a href="#">usztywniane3</a></li>
+					<ul class="dropdown__content drop-box drop-me drop-me-x">
+						<li class="drop-box__row"><a href="#">Bardotka3</a></li>
+						<li class="drop-box__row"><a href="#">Minimizer3</a></li>
+						<li class="drop-box__row"><a href="#">Multiway3</a></li>
+						<li class="drop-box__row"><a href="#">Push-up3</a></li>
+						<li class="drop-box__row"><a href="#">Soft3</a></li>
+						<li class="drop-box__row"><a href="#">Sportowe3</a></li>
+						<li class="drop-box__row"><a href="#">usztywniane3</a></li>
 					</ul>
 				</li>
-				<li class="dropdown__item"><a href="#">Body</a></li>
-				<li class="dropdown__item"><a href="#">Majtki</a></li>
-				<li class="dropdown__item"><a href="#">Stroje kąpielowe</a></li>
-				<li class="dropdown__item"><a href="#">Bielizna erotyczna</a></li>
-				<li class="dropdown__item dropdown">
+				<li class="drop-box__row"><a href="#">Body</a></li>
+				<li class="drop-box__row"><a href="#">Majtki</a></li>
+				<li class="drop-box__row"><a href="#">Stroje kąpielowe</a></li>
+				<li class="drop-box__row"><a href="#">Bielizna erotyczna</a></li>
+				<li
+					class="
+						drop-box__row
+						dropdown
+						md:drop-group md:hover:drop-group md:focus-within:drop-group
+					"
+				>
 					<input
 						type="checkbox"
 						id="Biustonosze2"
@@ -77,35 +102,48 @@
 						<span class="menu-checkbox--closed hidden">&#x261B;</span>
 						Biustonosze2
 					</label>
-					<ul class="bg-green-500 dropdown__content">
-						<li class="dropdown__item"><a href="#">Bardotka2</a></li>
-						<li class="dropdown__item"><a href="#">Minimizer2</a></li>
-						<li class="dropdown__item"><a href="#">Multiway2</a></li>
-						<li class="dropdown__item"><a href="#">Push-up2</a></li>
-						<li class="dropdown__item"><a href="#">Soft2</a></li>
-						<li class="dropdown__item"><a href="#">Sportowe2</a></li>
-						<li class="dropdown__item"><a href="#">usztywniane2</a></li>
+					<ul class="dropdown__content drop-box drop-me drop-me-x">
+						<li class="drop-box__row"><a href="#">Bardotka2</a></li>
+						<li class="drop-box__row"><a href="#">Minimizer2</a></li>
+						<li class="drop-box__row"><a href="#">Multiway2</a></li>
+						<li class="drop-box__row"><a href="#">Push-up2</a></li>
+						<li class="drop-box__row"><a href="#">Soft2</a></li>
+						<li class="drop-box__row"><a href="#">Sportowe2</a></li>
+						<li class="drop-box__row"><a href="#">usztywniane2</a></li>
 					</ul>
 				</li>
-				<li class="dropdown__item"><a href="#">Stroje sportowe</a></li>
-				<li class="dropdown__item"><a href="#">bielizna wieczorowa</a></li>
+				<li class="drop-box__row"><a href="#">Stroje sportowe</a></li>
+				<li class="drop-box__row"><a href="#">bielizna wieczorowa</a></li>
 			</ul>
 		</li>
-		<li class="navigation__link dropdown">
+		<li
+			class="
+				navigation__link
+				dropdown
+				md:drop-group md:hover:drop-group md:focus-within:drop-group
+			"
+		>
 			<input type="checkbox" id="Nowości" class="sr-only menu-item-checkbox" />
 			<label class="interactive-control md:text-center px-2" for="Nowości">
 				<span class="menu-checkbox--opened hidden">&#x261A;</span>
 				<span class="menu-checkbox--closed hidden">&#x261B;</span>
 				Nowości
 			</label>
-			<ul class="normal-case font-normal dropdown__content">
-				<li class="dropdown__item"><a href="#">Bardotka</a></li>
-				<li class="dropdown__item"><a href="#">Minimizer</a></li>
-				<li class="dropdown__item"><a href="#">Multiway</a></li>
-				<li class="dropdown__item"><a href="#">Push-up</a></li>
-				<li class="dropdown__item"><a href="#">Soft</a></li>
-				<li class="dropdown__item"><a href="#">Sportowe</a></li>
-				<li class="dropdown__item"><a href="#">usztywniane</a></li>
+			<ul
+				class="
+					normal-case
+					font-normal
+					dropdown__content
+					drop-box drop-me drop-me-y
+				"
+			>
+				<li class="drop-box__row"><a href="#">Bardotka</a></li>
+				<li class="drop-box__row"><a href="#">Minimizer</a></li>
+				<li class="drop-box__row"><a href="#">Multiway</a></li>
+				<li class="drop-box__row"><a href="#">Push-up</a></li>
+				<li class="drop-box__row"><a href="#">Soft</a></li>
+				<li class="drop-box__row"><a href="#">Sportowe</a></li>
+				<li class="drop-box__row"><a href="#">usztywniane</a></li>
 			</ul>
 		</li>
 		<li class="navigation__link">

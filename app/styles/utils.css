@@ -6,51 +6,56 @@
 @tailwind utilities;
 
 @layer utilities {
-	.visible-reset {
+	.visible-restore {
 		@apply visible overflow-visible;
 		max-width: none;
 		max-height: none;
 	}
-	.visible-sg {
+	.visible-reset {
 		@apply invisible max-h-0 max-w-0 overflow-hidden;
 	}
 }
 
-@media screen(md) {
-	.dropdown {
-		position: relative;
-	}
-	.dropdown__content {
-		@apply absolute visible-sg;
-	}
+@layer utilities {
+	/*
+	1)
+	drop-group
+			 drop-group drop-me drop-me-y
+				  drop-me drop-me-x
+	2)
+	drop-group md:hover:drop-group md:focus-within:drop-group
+ 		drop-me drop-me-y
+	 
+	*/
 
-	/* first-level */
-	.dropdown {
-		& > .dropdown__content {
+	@media screen(md) {
+		.drop-me {
+			@apply absolute visible-reset;
+		}
+		.drop-me-y {
 			@apply enter-active-slow enter-from-y;
 		}
-		&:hover,
-		&:focus-within {
-			& > .dropdown__content {
-				@apply enter-to-y visible-reset;
-			}
-			& a {
-				@apply opacity-100;
-			}
-		}
-	}
-	/* second-level */
-	.dropdown__content .dropdown {
-		& > .dropdown__content {
+		.drop-me-x {
 			@apply enter-active-fast enter-from-x;
 		}
-		&:hover,
-		&:focus-within {
-			& > .dropdown__content {
-				@apply enter-to-x visible-reset;
+		.md\:drop-group {
+			@apply relative;
+		}
+		.md\:hover\:drop-group:hover {
+			& > .drop-me-x {
+				@apply enter-to-x visible-restore;
 			}
-			& a {
-				@apply opacity-100;
+			& > .drop-me-y {
+				@apply enter-to-y visible-restore;
+			}
+		}
+
+		.md\:focus\-within\:drop-group:focus-within {
+			& > .drop-me-x {
+				@apply enter-to-x visible-restore;
+			}
+			& > .drop-me-y {
+				@apply enter-to-y visible-restore;
 			}
 		}
 	}

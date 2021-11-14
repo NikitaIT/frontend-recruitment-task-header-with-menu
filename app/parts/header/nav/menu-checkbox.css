@@ -1,7 +1,13 @@
 [for="menu-checkbox"] {
-	@apply z-20;
+	@apply z-20 cursor-pointer hover:bg-accent hover:text-white;
 }
+
 #menu-checkbox {
+	&:focus {
+		& + .cb-label-selector label {
+			@apply text-white bg-accent-light;
+		}
+	}
 	&:checked {
 		& + .cb-label-selector label {
 			/* border-b-4 */
