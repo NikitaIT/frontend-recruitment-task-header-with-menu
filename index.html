@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="pl">
+	<head>
+		<meta charset="utf-8" />
+		<!-- <base href="/"> -->
+		<meta charset="utf-8" />
+
+<title>Aurora Box</title>
+<meta name="description" content="Shop" />
+<meta content="shop" name="keywords" />
+<link rel="canonical" href="https://aurora-box.pl/" />
+<link
+	rel="preload"
+	as="font"
+	href="/fonts/Lato/lato-bold.woff2"
+	type="font/woff2"
+	crossorigin="anonymous"
+/>
+<link
+	rel="preload"
+	as="font"
+	href="/fonts/Lato/lato-regular.woff2"
+	type="font/woff2"
+	crossorigin="anonymous"
+/>
+<link
+	rel="preload"
+	as="font"
+	href="/fonts/Lato/lato-light.woff2"
+	type="font/woff2"
+	crossorigin="anonymous"
+/>
+<meta
+	name="viewport"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+/>
+<meta name="theme-color" content="#ffffff" />
+
+<link rel="manifest" href="/site.json" />
+<script type="application/ld+json">
+	{}
+</script>
+
+<link rel="icon" href="images/favicon.png" />
+<meta property="og:image" content="images/dist/preview.jpg" />
+<!--order important-->
+<link rel="stylesheet" href="css/utils.min.css" />
+<link rel="stylesheet" href="css/app.min.css" />
+
+	</head>
+	<body>
+		<div class="gh-acc-exp-div">
+	<a class="gh-acc-a" href="#mainContent">Skip to main content</a>
+</div>
+
+
+<!-- -top-20 for skip sticky logo and basket -->
+<header role="banner" class="sticky -top-20 md:static md:top-auto bg-white">
+	<div class="relative">
+		<div class="auto-layout md:pt-11">
+			<!-- 
+		Items should be "baseline", but it could not be handled - 
+		logo not be "text", search should have A11I label.
+		**Solution**: hold "baseline" constraint 
+		by "jastify-center" in each component directly.
+	-->
+<div class="flex justify-between flex-wrap md:flex-nowrap md:w-full">
+	<div class="flex items-center pb-4 pt-3 md:pb-8 md:pt-6 lg:pb-12 lg:pt-9">
+		<figure>
+	<img
+		width="147px"
+		height="63px"
+		role="banner"
+		src="images/dist/logo.png"
+		alt="Aurora box"
+	/>
+</figure>
+
+	</div>
+	<!-- order-last - As BlindUser, on "tab" - search should be before basket -->
+	<div class="order-last w-full md:order-none md:w-2/4">
+		<form role="search" class="relative md:h-full text-base" action="#">
+	<!-- 
+		Label have full size - As a TremorUser, 
+		I expect the click area to be larger than the real one.
+  -->
+	<label
+		for="search-products"
+		class="
+			flex
+			md:justify-end md:items-center md:absolute md:top-0 md:h-full md:w-full
+		"
+	>
+		<span class="sr-only">Co chcesz kupić?</span>
+		<span class="w-full md:w-3/4 flex flex-col relative">
+			<input
+				id="search-products"
+				type="search"
+				class="h-8 pr-5 pl-1 hide-clear-button"
+				placeholder="Co chcesz kupić?"
+				name="search"
+			/>
+			<span
+				class="
+					before:absolute
+					before:right-0
+					before:bottom-0
+					before:w-full
+					before:border-b
+					before:border-black
+					before:pointer-events-none
+					before:transition-colors
+					hover:before:border-b-2
+				"
+			>
+			</span>
+		</span>
+	</label>
+	<div class="h-full w-full flex items-center justify-end">
+		<div class="md:relative md:h-8">
+			<div class="absolute right-0 top-0 h-full">
+				<button
+					class="text-accent-light h-full w-8 flex justify-end items-start"
+					type="submit"
+					value="Search"
+				>
+					<span class="block w-4 h-4 mt-1">
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15 15" width="100%" height="100%">
+	<g>
+		<path fill="currentColor" d="M10.01 1.71C7.72 -0.58 4 -0.58 1.71 1.71C-0.58 4 -0.58 7.72 1.71 10.01C3.75 12.05 6.92 12.27 9.21 10.68C9.26 10.9 9.37 11.12 9.54 11.3L12.88 14.63C13.36 15.12 14.15 15.12 14.63 14.63C15.12 14.15 15.12 13.36 14.63 12.88L11.3 9.54C11.12 9.37 10.9 9.26 10.68 9.21C12.27 6.92 12.05 3.75 10.01 1.71ZM8.96 8.96C7.25 10.67 4.47 10.67 2.76 8.96C1.05 7.25 1.05 4.47 2.76 2.76C4.47 1.05 7.25 1.05 8.96 2.76C10.67 4.47 10.67 7.25 8.96 8.96Z" />
+	</g>
+</svg>
+					</span>
+					<span class="sr-only">search</span>
+				</button>
+			</div>
+		</div>
+	</div>
+</form>
+
+	</div>
+	<div>
+		<!-- For "h-full" - should have "block" parent -->
+		<div class="w-auto h-full flex items-center lg:mr-8">
+			<a
+	id="open-basket-button"
+	role="button"
+	class="block w-auto group"
+	href="#basket"
+	aria-haspopup="dialog"
+>
+	<span class="sr-only">Open</span>
+	<!--
+		UserStory: As a Customer, I want listen polite alert after "add/remove to/from basket", so that confirm my action.
+		Impl: Use aria-live on add to basket, remove if we have confirm dialog after each "add to bug".
+	 -->
+	<span aria-live="polite" aria-atomic="true" class="flex">
+		<span
+			class="
+				font-bold
+				text-base
+				order-last
+				leading-none
+				group-hover:text-accent
+				group-focus:text-accent-light
+			"
+			>Twój koszyk</span
+		>
+		<span class="sr-only">with</span>
+		<span class="relative inline-block h-8 w-7 mbr-text-xs-p-rect md:mb-0">
+			<span class="group-hover:text-accent group-focus:text-accent-light">
+				<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 31" width="100%" height="100%">
+	<g>
+		<path  fill="currentColor" d="M23.18 31L2.81 31C1.97 31 1.17 30.62 0.64 29.97C0.1 29.32 -0.11 28.46 0.05 27.63L1.91 10.65C2.19 9.26 3.35 8.3 4.68 8.3L21.31 8.3C22.65 8.3 23.8 9.25 24.07 10.56L25.95 27.72C26.1 28.46 25.89 29.32 25.36 29.97C24.82 30.62 24.03 31 23.18 31ZM21.31 10.24L4.68 10.24C4.27 10.24 3.91 10.54 3.82 10.95L1.97 27.93C1.88 28.37 2.04 28.62 2.13 28.74C2.23 28.86 2.45 29.06 2.81 29.06L23.18 29.06C23.55 29.06 23.76 28.86 23.86 28.74C23.96 28.62 24.11 28.37 24.04 28.01L22.16 10.86C22.09 10.54 21.73 10.24 21.31 10.24ZM19.21 14.49C18.74 14.49 18.33 14.15 18.26 13.67L16.66 3.29C16.49 2.53 15.76 1.94 14.92 1.94L11.08 1.94C10.24 1.94 9.5 2.53 9.32 3.35L7.74 13.67C7.66 14.2 7.16 14.56 6.63 14.48C6.11 14.4 5.74 13.91 5.83 13.38L7.42 3C7.81 1.23 9.34 0 11.08 0L14.92 0C16.66 0 18.19 1.23 18.56 2.94L20.17 13.38C20.25 13.91 19.89 14.4 19.36 14.48C19.31 14.49 19.26 14.49 19.21 14.49Z" />
+	</g>
+</svg>
+			</span>
+			<span class="font-black text-xs-p-rect text-on-accent-light br-badge"
+				>2</span
+			>
+		</span>
+		<span class="sr-only">items</span>
+	</span>
+</a>
+<form
+	id="basket"
+	tabindex="-1"
+	role="dialog"
+	class="hidden z-50 bg-white h-full py-4"
+	aria-labelledby="basket-dialog-title"
+	action="#"
+>
+	<div class="">
+		<div>
+			<div id="basket-dialog-title" class="text-sm">
+				Produkty w koszyku: <strong>2</strong>
+			</div>
+			<div class="text-base">Kwota do zapłaty: <strong>240 PLN</strong></div>
+		</div>
+		<hr />
+		<ul class="">
+			<li>
+				<figure class="order__options">
+					<img
+						src="images/dist/miniatura.png"
+						width="59px"
+						height="78px"
+						alt="Biustonosz"
+					/>
+					<figcaption class="order__wrapper">
+						<div class="order__desctiption">Biustonosz push-up line mos 12</div>
+						<div class="order__price">59.99 ZL</div>
+						<div class="">
+							<div class="">
+								<p>ilość <span class="">1</span></p>
+							</div>
+							<div class="float-right">
+								<button class="inline-block w-4 h-4">
+									<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+								</button>
+								<button class="inline-block w-4 h-4">
+									<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+								</button>
+							</div>
+						</div>
+					</figcaption>
+				</figure>
+			</li>
+			<li>
+				<figure class="order__options">
+					<img
+						src="images/dist/miniatura.png"
+						width="59px"
+						height="78px"
+						alt="Biustonosz"
+					/>
+					<figcaption class="order__wrapper">
+						<fieldset>
+							<legend>
+								<span class="order__desctiption order__desctiption_promo"
+									>Biustonosz push-up line re 6</span
+								>
+								<!-- <s> - "no longer relevant" -->
+								<span class="order__price"
+									>59.99 ZL <s class="order__price_promo">109.00 ZL</s></span
+								>
+							</legend>
+							<div class="">
+								<div class="">
+									<p>
+										ilość <input type="number" class="w-10 h-10" value="2" />
+									</p>
+								</div>
+								<div class="float-right">
+									<button class="inline-block w-4 h-4">
+										<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+									</button>
+									<button class="inline-block w-4 h-4">
+										<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+									</button>
+								</div>
+							</div>
+						</fieldset>
+					</figcaption>
+				</figure>
+			</li>
+		</ul>
+		<hr />
+		<button type="submit">Zobacz koszyk</button>
+	</div>
+	<a role="button" class="sr-only focus:not-sr-only" href="#open-basket-button"
+		>close</a
+	>
+</form>
+
+
+		</div>
+	</div>
+</div>
+
+		</div>
+		<div class="absolute top-0 w-full">
+			<div class="w-full text-sm fixed md:static z-10 bottom-0">
+	<div class="border-b-2 md:border-b-0">
+		<!-- top-border becouse borders has 0-1px gap with content if not on the same block -->
+	</div>
+	<div
+		class="
+			flex
+			w-full
+			bg-white
+			h-14
+			md:h-10
+			lg:mx-auto lg:max-w-5xl lg:justify-between
+		"
+	>
+		<!-- lg:-ml-3 is fit to auto layout -->
+		<ul class="flex w-full md:w-1/2 lg:w-auto lg:-ml-3">
+			<li class="flex w-full lg:w-auto">
+				<a
+					class="
+						w-full
+						flex
+						justify-center
+						py-2
+						md:space-x-2 md:py-0 md:items-center
+						hover:bg-accent
+						focus:bg-accent-light
+						group
+						lg:px-5
+					"
+					href="tel:+48293939098"
+				>
+					<span
+						class="
+							flex-shrink-0
+							h-full
+							w-full
+							text-accent
+							group-hover:text-white
+							md:h-4 md:w-4
+						"
+					>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 12" width="100%" height="100%">
+	<g>
+		<path fill="currentColor" d="M11.64 9.01L9.91 7.27C9.68 7.03 9.37 6.9 9.03 6.9C8.69 6.9 8.36 7.04 8.11 7.29L7.44 7.97C6.91 7.68 6.22 7.27 5.49 6.55C4.77 5.82 4.37 5.12 4.08 4.59L4.75 3.91C5.26 3.41 5.27 2.6 4.78 2.1L3.04 0.36C2.81 0.13 2.5 0 2.17 0C1.83 0 1.51 0.13 1.26 0.37C1.11 0.49 0.37 1.15 0.09 2.52C-0.3 4.43 0.59 6.27 3.18 8.87C6.06 11.77 8.53 12 9.22 12C9.36 12 9.45 11.99 9.47 11.99C10.81 11.83 11.3 11.23 11.65 10.79C12.11 10.22 12.1 9.47 11.64 9.01ZM11.07 10.32C10.74 10.73 10.43 11.12 9.38 11.25C9.38 11.25 9.32 11.25 9.22 11.25C8.6 11.25 6.39 11.04 3.7 8.34C1.32 5.95 0.48 4.3 0.82 2.67C1.06 1.48 1.7 0.97 1.73 0.95L1.75 0.93L1.77 0.92C1.88 0.81 2.02 0.75 2.17 0.75C2.3 0.75 2.43 0.8 2.52 0.89L4.25 2.63C4.45 2.83 4.44 3.17 4.23 3.38L3.46 4.15L3.45 4.16C3.25 4.38 3.28 4.68 3.38 4.88C3.7 5.45 4.13 6.24 4.97 7.07C5.8 7.91 6.58 8.35 7.15 8.66C7.21 8.7 7.32 8.75 7.47 8.75C7.64 8.75 7.8 8.67 7.92 8.54L8.64 7.82C8.75 7.71 8.89 7.65 9.03 7.65C9.17 7.65 9.29 7.7 9.39 7.8L11.12 9.54C11.34 9.76 11.25 10.1 11.07 10.32ZM7.26 1.83C7.9 1.91 8.66 2.3 9.18 2.82C9.71 3.36 10.1 4.12 10.17 4.77C10.19 4.96 10.35 5.1 10.54 5.1C10.55 5.1 10.57 5.1 10.58 5.1C10.78 5.08 10.93 4.9 10.91 4.69C10.82 3.87 10.36 2.95 9.71 2.29C9.06 1.64 8.16 1.18 7.35 1.09C7.14 1.07 6.96 1.21 6.94 1.42C6.91 1.62 7.06 1.81 7.26 1.83ZM6.92 3.4C7.26 3.44 7.74 3.7 8.05 4.01C8.37 4.33 8.63 4.82 8.66 5.17C8.69 5.36 8.85 5.5 9.03 5.5C9.05 5.5 9.06 5.5 9.07 5.5C9.28 5.48 9.43 5.29 9.4 5.09C9.34 4.49 8.94 3.85 8.58 3.48C8.22 3.12 7.59 2.72 7 2.66C6.8 2.63 6.61 2.78 6.59 2.98C6.57 3.19 6.71 3.38 6.92 3.4Z" />
+	</g>
+</svg>
+					</span>
+
+					<span
+						class="
+							flex-shrink-0
+							sr-only
+							group-hover:text-white
+							md:not-sr-only md:leading-none md:whitespace-nowrap
+						"
+						>293 939 098</span
+					>
+				</a>
+			</li>
+			<li class="flex w-full lg:w-auto">
+				<a
+					class="
+						w-full
+						flex
+						justify-center
+						py-2
+						md:space-x-2 md:py-0 md:items-center
+						hover:bg-accent
+						focus:bg-accent-light
+						group
+						lg:px-5
+					"
+					href="mailto:kontakt@aurorabox.pl"
+				>
+					<span
+						class="
+							flex-shrink-0
+							h-full
+							w-full
+							text-accent
+							group-hover:text-white
+							md:h-4 md:w-4
+						"
+					>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 9" width="100%" height="100%">
+	<g>
+		<path fill="currentColor" d="M10.59 0L1.41 0C0.63 0 0 0.64 0 1.44L0 7.56C0 8.36 0.63 9 1.41 9L10.59 9C11.37 9 12 8.36 12 7.56L12 1.44C12 0.64 11.37 0 10.59 0ZM11.06 7.56C11.06 7.83 10.85 8.04 10.59 8.04L1.41 8.04C1.15 8.04 0.94 7.83 0.94 7.56L0.94 1.44C0.94 1.17 1.15 0.96 1.41 0.96L10.59 0.96C10.85 0.96 11.06 1.17 11.06 1.44L11.06 7.56ZM10.98 0.6L6 4.38L1.02 0.6L0.46 1.36L6 5.58L11.54 1.36L10.98 0.6Z" />
+	</g>
+</svg>
+					</span>
+
+					<span
+						class="
+							flex-shrink-0
+							sr-only
+							group-hover:text-white
+							md:not-sr-only md:leading-none md:whitespace-nowrap
+						"
+						>kontakt@aurorabox.pl</span
+					>
+				</a>
+			</li>
+		</ul>
+		<ul class="flex w-full md:w-1/2 lg:w-auto lg:group-borders-x-2">
+			<li class="flex w-full lg:w-auto">
+				<a
+					class="
+						w-full
+						flex
+						justify-center
+						py-2
+						md:space-x-2 md:py-0 md:items-center
+						hover:bg-accent
+						focus:bg-accent-light
+						group
+						lg:px-5
+					"
+					href="#"
+				>
+					<span
+						class="
+							flex-shrink-0
+							h-full
+							w-full
+							text-accent
+							group-hover:text-white
+							md:h-4 md:w-4
+						"
+					>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 9 12" width="100%" height="100%">
+	<g>
+		<path fill="currentColor" d="M7.68 4.41L6.88 4.41L6.88 2.48C6.88 1.11 5.81 0 4.5 0C3.19 0 2.12 1.11 2.12 2.48L2.12 4.41L1.32 4.41C0.59 4.41 0 5.04 0 5.81L0 10.59C0 11.37 0.59 12 1.32 12L7.68 12C8.41 12 9 11.37 9 10.59L9 5.81C9 5.04 8.41 4.41 7.68 4.41ZM3 2.48C3 1.63 3.67 0.94 4.5 0.94C5.33 0.94 6 1.63 6 2.48L6 4.41L3 4.41L3 2.48L3 2.48ZM8.12 10.59C8.12 10.85 7.92 11.06 7.68 11.06L1.32 11.06C1.08 11.06 0.88 10.85 0.88 10.59L0.88 5.81C0.88 5.55 1.08 5.34 1.32 5.34L7.68 5.34C7.92 5.34 8.12 5.55 8.12 5.81L8.12 10.59ZM4.5 6.7C4.05 6.7 3.68 7.09 3.68 7.57C3.68 7.88 3.83 8.14 4.06 8.3L4.06 9.33C4.06 9.59 4.26 9.8 4.5 9.8C4.74 9.8 4.94 9.59 4.94 9.33L4.94 8.3C5.17 8.15 5.32 7.88 5.32 7.57C5.32 7.09 4.95 6.7 4.5 6.7Z" />
+	</g>
+</svg>
+					</span>
+					<span
+						class="
+							sr-only
+							group-hover:text-white
+							md:not-sr-only md:leading-none md:whitespace-nowrap
+						"
+						>Zaloguj się</span
+					>
+				</a>
+			</li>
+
+			<li class="flex w-full lg:w-auto">
+				<a
+					class="
+						w-full
+						flex
+						justify-center
+						py-2
+						md:space-x-2 md:py-0 md:items-center
+						hover:bg-accent
+						focus:bg-accent-light
+						group
+						lg:px-5
+					"
+					href="#"
+				>
+					<span
+						class="
+							flex-shrink-0
+							h-full
+							w-full
+							text-accent
+							group-hover:text-white
+							md:h-4 md:w-4
+						"
+					>
+						<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 13" width="100%" height="100%">
+	<g>
+		<path fill="currentColor" d="M4.19 6.88L5.35 6.88C5.86 6.88 6.36 7 6.84 7.24L7.24 6.43C6.64 6.14 6 5.98 5.35 5.98L4.19 5.98C1.88 5.98 0 7.85 0 10.14L0 11.19C0 11.44 0.2 11.64 0.45 11.64L5.95 11.64L5.95 10.74L0.9 10.74L0.9 10.14C0.9 8.34 2.38 6.88 4.19 6.88ZM4.76 0C3.23 0 1.99 1.23 1.99 2.75C1.99 4.27 3.23 5.5 4.76 5.5C6.29 5.5 7.54 4.27 7.54 2.75C7.54 1.23 6.29 0 4.76 0ZM4.76 4.61C3.73 4.61 2.89 3.78 2.89 2.75C2.89 1.73 3.73 0.9 4.76 0.9C5.79 0.9 6.63 1.73 6.63 2.75C6.63 3.78 5.79 4.61 4.76 4.61ZM8.5 6.06C6.57 6.06 5 7.62 5 9.53C5 11.44 6.57 13 8.5 13C10.43 13 12 11.44 12 9.53C12 7.62 10.43 6.06 8.5 6.06ZM8.5 12.1C7.07 12.1 5.91 10.95 5.91 9.53C5.91 8.11 7.07 6.96 8.5 6.96C9.93 6.96 11.1 8.11 11.1 9.53C11.1 10.95 9.93 12.1 8.5 12.1ZM8.5 7.84C8.25 7.84 8.05 8.04 8.05 8.29L8.05 10.77C8.05 11.02 8.25 11.22 8.5 11.22C8.75 11.22 8.95 11.02 8.95 10.77L8.95 8.29C8.95 8.04 8.75 7.84 8.5 7.84ZM9.75 9.08L7.25 9.08C7 9.08 6.8 9.28 6.8 9.53C6.8 9.78 7 9.98 7.25 9.98L9.75 9.98C10 9.98 10.21 9.78 10.21 9.53C10.21 9.28 10 9.08 9.75 9.08Z" />
+	</g>
+</svg>
+					</span>
+					<span
+						class="
+							sr-only
+							group-hover:text-white
+							md:not-sr-only md:leading-none md:whitespace-nowrap
+						"
+					>
+						Załóż konto
+					</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+	<div class="md:border-t-2">
+		<!-- top-border becouse borders has 0-1px gap with content if not on the same block -->
+	</div>
+</div>
+
+		</div>
+	</div>
+	<div class="auto-layout">
+		<nav
+	role="navigation"
+	aria-label="Types of goods"
+	class="md:relative md:-mt-4 lg:-mt-7"
+>
+	<input type="checkbox" id="menu-checkbox" class="sr-only hold-hash-params" />
+<span class="md:hidden cb-label-selector h-0 w-full flex justify-center">
+	<span class="w-0">
+		<label
+			for="menu-checkbox"
+			class="
+				fixed
+				bottom-9
+				translate-center
+				text-accent
+				border-b-4
+				rounded-full
+				bg-white
+				p-4
+			"
+		>
+			<svg
+				class="menu-checkbox--closed"
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<line x1="3" y1="12" x2="21" y2="12"></line>
+				<line x1="3" y1="6" x2="21" y2="6"></line>
+				<line x1="3" y1="18" x2="21" y2="18"></line>
+			</svg>
+			<svg
+				class="menu-checkbox--opened"
+				xmlns="http://www.w3.org/2000/svg"
+				width="24"
+				height="24"
+				viewBox="0 0 24 24"
+				fill="none"
+				stroke="currentColor"
+				stroke-width="2"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+			>
+				<line x1="18" y1="6" x2="6" y2="18"></line>
+				<line x1="6" y1="6" x2="18" y2="18"></line>
+			</svg>
+		</label>
+	</span>
+</span>
+
+	<ul class="navigation text-base font-bold uppercase all-first-upper md:flex">
+		<li class="navigation__link dropdown">
+			<input
+				type="checkbox"
+				id="Kategorie"
+				class="sr-only menu-item-checkbox"
+			/>
+			<label
+				class="interactive-control md:text-center lg:text-left"
+				for="Kategorie"
+			>
+				<span class="menu-checkbox--opened hidden"><</span>
+				<span class="menu-checkbox--closed hidden">></span>
+				Kategorie
+			</label>
+			<ul class="normal-case font-normal bg-white dropdown__content">
+				<li class="dropdown__item dropdown">
+					<input
+						type="checkbox"
+						id="Biustonosze"
+						class="sr-only menu-item-checkbox"
+					/>
+					<label for="Biustonosze">
+						<span class="menu-checkbox--opened hidden"><</span>
+						<span class="menu-checkbox--closed hidden">></span>
+						Biustonosze
+					</label>
+					<ul class="dropdown__content">
+						<li class="dropdown__item"><a href="#">Bardotka</a></li>
+						<li class="dropdown__item"><a href="#">Minimizer</a></li>
+						<li class="dropdown__item"><a href="#">Multiway</a></li>
+						<li class="dropdown__item"><a href="#">Push-up</a></li>
+						<li class="dropdown__item"><a href="#">Soft</a></li>
+						<li class="dropdown__item"><a href="#">Sportowe</a></li>
+						<li class="dropdown__item"><a href="#">usztywniane</a></li>
+					</ul>
+				</li>
+				<li class="dropdown__item dropdown">
+					<input
+						type="checkbox"
+						id="Biustonosze3"
+						class="sr-only menu-item-checkbox"
+					/>
+					<label for="Biustonosze3">
+						<span class="menu-checkbox--opened hidden"><</span>
+						<span class="menu-checkbox--closed hidden">></span>
+						Biustonosze3
+					</label>
+					<ul class="bg-white dropdown__content">
+						<li class="dropdown__item"><a href="#">Bardotka3</a></li>
+						<li class="dropdown__item"><a href="#">Minimizer3</a></li>
+						<li class="dropdown__item"><a href="#">Multiway3</a></li>
+						<li class="dropdown__item"><a href="#">Push-up3</a></li>
+						<li class="dropdown__item"><a href="#">Soft3</a></li>
+						<li class="dropdown__item"><a href="#">Sportowe3</a></li>
+						<li class="dropdown__item"><a href="#">usztywniane3</a></li>
+					</ul>
+				</li>
+				<li class="dropdown__item"><a href="#">Body</a></li>
+				<li class="dropdown__item"><a href="#">Majtki</a></li>
+				<li class="dropdown__item"><a href="#">Stroje kąpielowe</a></li>
+				<li class="dropdown__item"><a href="#">Bielizna erotyczna</a></li>
+				<li class="dropdown__item dropdown">
+					<input
+						type="checkbox"
+						id="Biustonosze2"
+						class="sr-only menu-item-checkbox"
+					/>
+					<label for="Biustonosze2">
+						<span class="menu-checkbox--opened hidden"><</span>
+						<span class="menu-checkbox--closed hidden">></span>
+						Biustonosze2
+					</label>
+					<ul class="bg-green-500 dropdown__content">
+						<li class="dropdown__item"><a href="#">Bardotka2</a></li>
+						<li class="dropdown__item"><a href="#">Minimizer2</a></li>
+						<li class="dropdown__item"><a href="#">Multiway2</a></li>
+						<li class="dropdown__item"><a href="#">Push-up2</a></li>
+						<li class="dropdown__item"><a href="#">Soft2</a></li>
+						<li class="dropdown__item"><a href="#">Sportowe2</a></li>
+						<li class="dropdown__item"><a href="#">usztywniane2</a></li>
+					</ul>
+				</li>
+				<li class="dropdown__item"><a href="#">Stroje sportowe</a></li>
+				<li class="dropdown__item"><a href="#">bielizna wieczorowa</a></li>
+			</ul>
+		</li>
+		<li class="navigation__link dropdown">
+			<input type="checkbox" id="Nowości" class="sr-only menu-item-checkbox" />
+			<label class="interactive-control md:text-center px-2" for="Nowości">
+				<span class="menu-checkbox--opened hidden"><</span>
+				<span class="menu-checkbox--closed hidden">></span>
+				Nowości
+			</label>
+			<ul class="normal-case font-normal dropdown__content">
+				<li class="dropdown__item"><a href="#">Bardotka</a></li>
+				<li class="dropdown__item"><a href="#">Minimizer</a></li>
+				<li class="dropdown__item"><a href="#">Multiway</a></li>
+				<li class="dropdown__item"><a href="#">Push-up</a></li>
+				<li class="dropdown__item"><a href="#">Soft</a></li>
+				<li class="dropdown__item"><a href="#">Sportowe</a></li>
+				<li class="dropdown__item"><a href="#">usztywniane</a></li>
+			</ul>
+		</li>
+		<li class="navigation__link">
+			<a class="interactive-control md:text-center px-2" href="#">Promocje</a>
+		</li>
+		<li class="navigation__link">
+			<a class="interactive-control md:text-center px-2" href="#">Wyprzedaże</a>
+		</li>
+		<li class="navigation__link">
+			<a class="interactive-control md:text-center px-2" href="#"
+				>Kolekcje sezony</a
+			>
+		</li>
+		<li class="navigation__link">
+			<a class="interactive-control md:text-center px-2" href="#"
+				>Nasza oferta</a
+			>
+		</li>
+		<li class="navigation__link">
+			<a class="interactive-control md:text-center px-2" href="#"
+				>Trendy 2018</a
+			>
+		</li>
+		<li class="navigation__link">
+			<a class="interactive-control md:text-center px-2" href="#">Blog</a>
+		</li>
+		<li class="navigation__link">
+			<a class="interactive-control md:text-center lg:text-right" href="#"
+				>Kontact</a
+			>
+		</li>
+	</ul>
+	<div class="md:border-t-2 w-full"></div>
+</nav>
+
+	</div>
+</header>
+
+
+		<!-- id and tabindex reseted for go to main content, but not in auto tab -->
+<main role="main" id="mainContent" tabindex="-1">
+	<!-- in ie11 layout should be not on main -->
+	<section class="auto-layout">
+		<h1>Item 1</h1>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Tempore quisquam
+		reprehenderit iste modi odit porro exercitationem quia possimus totam ex
+		quam eaque quae ut dolorum sapiente repellendus, nobis praesentium sequi!
+		Quae autem, harum quis temporibus quam sunt neque nam provident quod
+		repudiandae, debitis at. Ab optio quia similique cum nam, neque tenetur.
+		Tempore, ab sapiente asperiores ipsum sed ipsam eligendi! Ut nobis expedita
+		cupiditate aspernatur necessitatibus perferendis consectetur dicta, iure
+		quae illum eius, dolorum est consequatur illo qui? Ipsa, quae. Aut
+		perferendis ullam aperiam eos explicabo velit asperiores obcaecati maxime.
+		Quo quisquam, rem inventore non, reprehenderit laudantium nihil quibusdam
+		facilis corrupti est enim nisi illum animi magnam quam repudiandae beatae
+		laborum nulla. Temporibus commodi necessitatibus sapiente magnam, quaerat
+		minus aut! Sapiente non error iure est eveniet qui, modi iste? Accusamus
+		eveniet officiis sunt eius veritatis amet vitae autem, velit quia nisi omnis
+		quibusdam ad, eum esse modi voluptate. Ipsa, corrupti. Pariatur voluptates
+		iste fuga! Molestiae, impedit, assumenda reiciendis suscipit pariatur
+		tempora beatae provident dolore ullam autem, est accusantium! Fuga odit nisi
+		unde cupiditate a aperiam! Vero assumenda dolorum minima veritatis? Labore,
+		ad neque? Quae accusamus fugit veritatis quidem provident ullam dolores
+		maiores consequatur minus debitis ea rem recusandae nesciunt molestiae
+		aperiam doloremque eius aspernatur iste enim, pariatur, vel dicta quas? Ad
+		quas quisquam magnam atque maxime vero omnis, harum dolor tempore ipsum modi
+		assumenda magni, perspiciatis temporibus deleniti odio sapiente
+		exercitationem cupiditate ab molestias illo illum sequi. Vel, nisi sequi. Ab
+		obcaecati numquam reiciendis dignissimos quasi id, cupiditate exercitationem
+		doloremque excepturi alias voluptas vitae tempora est doloribus ipsa, porro
+		accusamus distinctio ipsum nulla quaerat rerum, esse officiis laudantium.
+		Ea, delectus. Odit in molestias aliquid cum atque dolores nisi non veniam
+		mollitia ipsa, perferendis dolorum quaerat sint repellat, explicabo illum
+		fugiat sequi. Vitae, illo! Eaque earum enim necessitatibus adipisci non
+		aspernatur! Sequi alias repellendus soluta nam, voluptatum iure! Ut nesciunt
+		dolorum accusantium possimus doloremque, vero enim numquam aspernatur
+		praesentium beatae debitis, deleniti repellendus? Delectus omnis molestiae,
+		perferendis debitis natus mollitia alias. Libero, veritatis qui! Dignissimos
+		nulla at ipsam, laborum, rem voluptatibus error ducimus quisquam explicabo
+		dolorem repudiandae, atque neque quo provident vero ex ullam dolorum. Error,
+		doloremque. Necessitatibus at quisquam sit! Ex nesciunt architecto, modi
+		dignissimos optio beatae quo quas quam cupiditate eaque eum autem distinctio
+		aspernatur ipsum. Aliquam exercitationem voluptatum similique beatae, alias
+		cupiditate. Quo eaque ipsam repellat ea tenetur. Quibusdam iste nam,
+		consequatur veniam, voluptas corrupti nobis placeat dicta quod doloribus
+		omnis. Ipsum optio voluptatum eum aliquid labore animi nemo! Aliquid quod
+		ullam ipsa dolore autem ab illum porro! Repellat similique corporis
+		blanditiis error neque nesciunt quo ad velit commodi. Dolorem, totam
+		aspernatur? Quas voluptates consectetur, nihil maiores iusto veniam ad
+		laboriosam officia aspernatur laborum, sint reiciendis, magnam expedita. A
+		unde porro voluptates quibusdam quia, debitis reiciendis. Sint, enim quidem?
+		Quod non enim molestiae corrupti cupiditate dolorum, temporibus maiores
+		provident ipsam quas harum voluptates fuga fugiat? Ipsam, deserunt expedita!
+		Neque natus facilis porro iusto dolor commodi amet! Deleniti, consequatur
+		quae culpa tempore sapiente reiciendis veniam odit reprehenderit ipsam
+		inventore dolor? Blanditiis illum maxime doloremque aliquam dolores nemo
+		laboriosam dolore! Quos itaque sed magni eos. Cumque non ut, molestiae,
+		totam error, cupiditate voluptatibus quis temporibus dolore dicta vitae
+		corrupti quia accusantium quo. Odio, est. Labore excepturi illo
+		reprehenderit dolor facilis. Veniam quibusdam rem nemo itaque quia ratione
+		placeat numquam debitis ab, quam perspiciatis. Cupiditate vitae fugiat
+		praesentium ex labore ut. Eius nostrum expedita, soluta quo eaque nihil
+		mollitia architecto adipisci. Iure voluptas quo assumenda porro dolore. Vel,
+		saepe deserunt. Eaque voluptas provident quam ipsam libero ut, hic dolores
+		molestias ipsa autem perspiciatis, aliquid adipisci atque a suscipit illum
+		deleniti eos! Consequatur quas voluptatibus nisi perferendis aspernatur
+		dolores corporis ab at culpa saepe a, harum ipsa quod expedita voluptatem
+		minima, facere nihil eligendi, reprehenderit praesentium cupiditate nesciunt
+		recusandae? Aliquam, praesentium molestiae. Quod libero hic, quas atque
+		accusantium ratione a? Consectetur nulla amet perferendis facilis placeat
+		quas, eos libero dolor, commodi ut sequi aut, sed laborum eius
+		necessitatibus vel dicta reiciendis maxime! Architecto magnam doloremque ab
+		a soluta repellendus animi veniam nobis! Optio sed quod incidunt. Labore
+		architecto nesciunt distinctio tempora, eos, recusandae qui error at tenetur
+		sunt nisi ab laudantium perspiciatis. Natus officiis, corrupti delectus nam
+		sit ipsum a culpa accusantium earum ab, in aliquid. Impedit praesentium
+		perferendis obcaecati dolor saepe itaque explicabo, sint laboriosam corrupti
+		amet quae, nostrum, sunt cumque? Recusandae provident, aut debitis totam
+		voluptate assumenda quidem sunt. Eos, error. Aperiam modi architecto, a,
+		maiores est, officiis repellat recusandae saepe deleniti dolores rerum ipsum
+		quas voluptates magni similique ullam. Hic minus maiores modi, laborum sed
+		dolor atque eaque cumque quo. Sint harum officiis deleniti, aperiam, animi
+		aut nemo facilis suscipit provident, incidunt sunt. Tenetur voluptatibus
+		velit eum dolores debitis. Dolorem similique tenetur illo, delectus qui
+		quasi nemo magnam dignissimos harum quibusdam necessitatibus perspiciatis
+		natus accusamus beatae eum tempore impedit quos dolores neque. Consequatur
+		minima ipsum consectetur excepturi, cupiditate perferendis. Quibusdam,
+		maiores. Obcaecati sint eveniet exercitationem alias temporibus harum
+		veritatis minus iusto explicabo nulla porro quos possimus, ipsa ab tempora!
+		Vero maiores debitis sunt quae, iste rerum laboriosam odio nisi? Aliquid,
+		fugit! Quos accusantium ex, voluptate facere repellendus officiis pariatur,
+		magnam dicta nemo sapiente, corrupti iure aperiam architecto dolorem at
+		porro praesentium laborum excepturi cupiditate accusamus earum illum ipsam
+		molestiae. Esse, rem architecto animi ut omnis expedita vero repudiandae
+		obcaecati tenetur nulla reprehenderit mollitia facilis in impedit
+		necessitatibus consequatur! Quibusdam, adipisci consequuntur? Similique
+		minus vero dolore nobis laboriosam sint cum. Molestias vel et voluptatum
+		temporibus magnam, voluptatem iure doloremque! Labore ratione voluptate
+		praesentium, adipisci aspernatur impedit velit, aperiam laudantium optio
+		quis, maxime facere nihil tempore laboriosam quaerat beatae rerum sequi.
+		Aliquam architecto, accusamus consequuntur consectetur voluptates nulla
+		similique aspernatur officiis reprehenderit possimus beatae facilis velit
+		tempora. Deserunt quibusdam iure eos beatae non aliquid! Odio aspernatur,
+		culpa dolorem libero suscipit sit. Dolores ipsam voluptates quod. Quibusdam
+		vero iure tenetur! Vel ex eveniet, deleniti aliquam veniam ipsa? Nemo
+		perspiciatis praesentium recusandae ab quia expedita odio eaque quos,
+		quaerat, debitis, veniam natus magnam? Saepe itaque aliquid tenetur
+		inventore blanditiis cumque, ratione fuga repellat vero autem consectetur
+		mollitia modi laudantium corrupti laborum? Minima nulla recusandae esse
+		labore error ipsam saepe corrupti accusamus iusto dicta? Neque, odit error
+		quia ea hic consectetur quis, atque facere nam aperiam repellendus maiores
+		harum vel facilis tempora deleniti nostrum natus quasi omnis velit.
+		Accusamus reiciendis voluptatibus animi harum omnis. Incidunt dolores iusto
+		numquam dolorum sed laborum deserunt voluptas neque maiores, reprehenderit
+		optio sequi, porro sunt minus molestiae quo eaque doloribus a possimus
+		dignissimos enim quam accusamus rem? Velit, minus! Dolores sed ab ex velit
+		distinctio! Dolorem sapiente consectetur ab similique laudantium
+		exercitationem necessitatibus sequi consequatur omnis eveniet autem totam
+		pariatur modi, libero odit dicta iusto placeat! Earum, tempore quasi!
+		Laudantium alias, velit mollitia eos incidunt at ut consequatur omnis esse
+		aperiam vero tempora facilis iste, assumenda voluptas? Adipisci nemo
+		similique reprehenderit labore deserunt omnis fugit quidem porro voluptas
+		eligendi! Temporibus, ea minima! Facilis dicta eius illo! At inventore sit
+		molestiae ratione quisquam velit minus tempora accusamus minima, officia
+		laborum earum libero? Id, voluptas? Architecto ipsam est corporis tenetur
+		soluta. Odio incidunt autem consequatur esse corporis enim cupiditate harum
+		voluptatem et id dolores molestias molestiae expedita excepturi quidem
+		accusamus veniam quaerat dolorum voluptatibus facilis iusto, corrupti unde
+		ad. Incidunt, natus? Ipsa expedita voluptate nam earum blanditiis eius,
+		animi obcaecati quae rem quis maxime qui cumque dolorem ratione accusamus
+		minus laborum! Dolor totam voluptatem, voluptates optio magni adipisci
+		laborum necessitatibus voluptatibus? Dolorem, aspernatur doloribus? Atque
+		consequuntur possimus incidunt, optio officia natus. Magni facilis,
+		distinctio laboriosam, omnis quis recusandae qui, ad voluptatum aliquam amet
+		veritatis aliquid! Aspernatur sit nemo mollitia unde nihil. Fuga, in vel,
+		suscipit voluptates vitae voluptate magnam laudantium delectus hic iure,
+		voluptatem a! Modi minima qui magnam amet iure at nisi repellendus,
+		architecto eius autem accusantium aperiam illum dicta. Quae esse ad
+		architecto recusandae aspernatur et eos. Est doloribus placeat natus nostrum
+		recusandae, incidunt animi sint fugit, quidem voluptas ea harum suscipit?
+		Vitae, quas cumque excepturi obcaecati officia quo? Fugit vel eaque hic?
+		Nostrum vel nesciunt dolor quidem aliquam dolores ex inventore quam cumque,
+		veritatis, eligendi suscipit earum vitae molestiae, animi corrupti deserunt
+		cupiditate corporis eaque? Officiis, minima iure. Odio obcaecati nihil
+		architecto. Nemo vel nihil, pariatur earum asperiores odit ex ad atque
+		explicabo recusandae laudantium id delectus. Provident rerum itaque culpa
+		maxime quaerat dicta in exercitationem aliquam impedit. Facere hic numquam,
+		dolorum minus totam eligendi alias beatae ea officiis fugiat eius! Esse
+		alias excepturi, velit, aliquam commodi in molestiae sint voluptatem quam
+		cum unde illo et eos veritatis? Laboriosam iure officiis reiciendis saepe
+		obcaecati pariatur exercitationem perferendis! Eaque nam sint dolorum nemo
+		magni earum, illo, rerum quaerat reprehenderit placeat, impedit ipsum magnam
+		sunt? Esse dolorem libero repellendus adipisci. Vel ad mollitia molestiae ut
+		fugiat omnis recusandae. Recusandae est, hic odio magni sit quia earum
+		accusamus facilis, sunt harum corrupti. Tenetur asperiores aperiam
+		blanditiis quis quaerat amet repudiandae dolores. Maiores molestias beatae
+		eos sit, reprehenderit consequuntur ipsum recusandae vel ipsa dolorem
+		doloribus inventore maxime molestiae alias veniam quam obcaecati eum
+		possimus aspernatur sequi repudiandae enim quo corporis! Quidem, sunt?
+		Temporibus officiis ipsam aliquam quam? At blanditiis ea perferendis quasi
+		labore atque explicabo voluptates autem quaerat sunt, obcaecati officia,
+		assumenda minus porro delectus distinctio aspernatur tempora maxime minima
+		reiciendis velit. Voluptas, doloribus aspernatur! Laborum, quisquam ipsum.
+		Temporibus corrupti reiciendis, commodi dolor tempore cumque porro. Vero
+		repudiandae placeat fugiat voluptatem reiciendis, quos est explicabo
+		sapiente nostrum esse cum ex molestias sunt. Sapiente aut non amet hic,
+		saepe quisquam omnis inventore beatae expedita necessitatibus laborum sunt
+		voluptates ad tempora voluptate perferendis possimus repellendus quo?
+		Placeat in vero sequi, nulla qui deleniti minima. Asperiores corrupti vel
+		dolor cupiditate, labore iusto, ab ad eligendi temporibus, nam hic! Eum
+		deserunt, vitae cum corporis accusantium enim, expedita autem neque ut,
+		quibusdam aliquid consequatur ad corrupti repellat! Aliquam sed blanditiis
+		facilis sunt minus eaque, tempore quaerat ullam earum ex neque qui rerum eum
+		reprehenderit sapiente necessitatibus? Ea quod consectetur doloribus
+		asperiores fugit reiciendis ex magni alias et. Ipsam officiis, tempora nobis
+		cupiditate consequatur minus libero sequi aliquid sapiente laudantium
+		voluptatibus necessitatibus odio provident rerum, doloremque quidem quis
+		molestias optio laboriosam veritatis! Ducimus recusandae dolore eius
+		incidunt cupiditate. Quia dicta sunt et voluptatum! Velit aliquid qui modi
+		facere, nostrum explicabo eum aliquam iusto tempora omnis, dignissimos a
+		repellendus eius molestias, maxime ducimus dolorem saepe? Asperiores facere
+		vero odio! Repellendus maxime dolore nemo commodi aut fugit doloribus eaque
+		voluptatum blanditiis eligendi optio molestias totam, architecto dolores,
+		sed laboriosam nesciunt eos mollitia ea vero earum, ullam facilis? Nostrum,
+		voluptatem repellendus. Minus odio impedit in? Optio voluptates sint maiores
+		fugiat, sapiente inventore tempora ex perferendis saepe ducimus
+		voluptatibus, provident placeat commodi reiciendis odit laboriosam
+		necessitatibus incidunt porro nesciunt nemo rerum! Tenetur? Eveniet
+		perspiciatis, veritatis corporis exercitationem harum tempora quibusdam
+		itaque unde sit beatae, sunt error iste enim a optio praesentium quos eius
+		officiis expedita tempore veniam incidunt. Vero magni dicta maxime? Eos
+		distinctio nemo, nulla nesciunt eveniet illum. Eos at ipsa repudiandae
+		magnam, magni autem doloribus delectus laudantium ipsum alias, natus earum
+		illo temporibus perspiciatis aliquam maxime iure. Sunt, natus neque. Nam
+		dolores aspernatur aliquid facilis molestias minima quasi deserunt, quae
+		tenetur quos beatae cumque sed harum praesentium. Dolorem aliquam sequi
+		ducimus consequatur ex maiores, quam quos, nostrum, vitae eum voluptate!
+		Voluptate excepturi eius natus molestias blanditiis suscipit totam,
+		cupiditate enim quia repellat maxime quod ipsa quae quam! Fugiat sequi at
+		qui, placeat id ea repellendus hic pariatur cumque dicta corrupti. Nulla
+		ipsum libero doloremque tempora necessitatibus temporibus error minima
+		sequi, placeat beatae! Vitae perferendis voluptates officiis ut hic
+		deserunt, velit doloremque ea illo alias voluptate voluptatibus tempore modi
+		odit dicta? Dignissimos aperiam, consectetur at dicta maxime officiis
+		consequatur officia sint ipsum molestias harum labore a quis aliquam iste
+		modi repudiandae dolore placeat quae. Nostrum labore quaerat, unde corporis
+		odio velit. Sapiente aut vel aliquam? Ad, eius vero! Voluptate laborum
+		deserunt, dolorum ea deleniti consectetur nobis! Et odit praesentium magni
+		quam veniam quasi excepturi, maxime molestias, fugiat unde ipsam quisquam
+		consequuntur. Omnis aperiam corporis pariatur nisi, sed perferendis culpa
+		deleniti quisquam tempore neque libero, in saepe animi doloribus ex maxime
+		iure ratione asperiores tenetur vero, consectetur qui rerum facere soluta.
+		Excepturi. Explicabo, provident quibusdam impedit facilis molestias omnis
+		non, fuga iure, ipsa eius nam beatae cupiditate molestiae ex suscipit
+		ratione inventore debitis! Deleniti, aspernatur blanditiis ullam magni ea et
+		adipisci asperiores? Illum ipsum excepturi fugiat consequatur voluptate quia
+		perferendis omnis sed laborum minima, praesentium, recusandae aliquid ad
+		officiis, perspiciatis adipisci tenetur. Repellendus labore omnis vitae
+		sapiente maxime cupiditate sint optio consequuntur? Natus velit facere quo
+		consequuntur a maxime laudantium cum, repudiandae vero error voluptatem
+		debitis provident voluptates fugiat deleniti non libero inventore, molestiae
+		alias laboriosam tempore! Nisi tenetur earum aperiam quia? Distinctio omnis
+		ab maxime dolore a odit velit magni, fugit cum! Incidunt delectus enim quam
+		atque! Inventore nulla aspernatur doloremque in nesciunt consectetur ut
+		exercitationem. Temporibus quibusdam vel quae maiores? Iure numquam
+		laboriosam dolorem dignissimos maxime atque quod eius blanditiis, accusamus
+		corrupti obcaecati, delectus cum excepturi ratione assumenda veritatis? Sunt
+		eligendi ullam doloremque ab dicta consectetur iste deserunt inventore
+		accusantium. Similique incidunt dolore, saepe necessitatibus sint at maxime
+		veniam tenetur temporibus veritatis exercitationem quae a nisi illum, sunt
+		ipsum tempore nostrum aperiam deserunt voluptatem deleniti odio facilis vel!
+		Molestiae, voluptatibus? Minus atque minima esse culpa. Dolorum aperiam
+		error dolor in itaque expedita reiciendis quaerat cupiditate ipsum nesciunt
+		rem, soluta nobis, debitis quas harum earum blanditiis dolore mollitia quis
+		impedit consectetur. Animi cupiditate atque voluptas sapiente quae tempora.
+		Alias nobis doloremque blanditiis totam officia distinctio nostrum sint
+		nihil non ratione incidunt, eveniet deserunt velit explicabo aliquam nisi
+		accusantium suscipit natus expedita. Doloribus est in eaque nobis incidunt
+		officiis omnis quam animi voluptatem possimus explicabo, doloremque adipisci
+		temporibus eius recusandae at! Maiores doloremque odio vero earum. Ullam
+		facere nesciunt perspiciatis commodi soluta! Beatae dignissimos quam sed
+		cum, ullam aut perspiciatis! Dicta autem atque ea voluptatum delectus
+		aliquid possimus non, veritatis praesentium, ab vitae doloremque! Quia
+		repudiandae voluptatibus voluptatem harum non expedita optio? Neque maxime
+		eius esse quos laboriosam placeat ad rem, nisi repellendus! Expedita earum
+		pariatur error commodi qui repellendus officiis dignissimos tempore
+		inventore, itaque quasi iste. Sapiente sed laudantium culpa quam. Eum,
+		aliquid facere reprehenderit distinctio est dignissimos minima sed adipisci
+		optio magni consequuntur, repudiandae amet praesentium officia quisquam,
+		itaque rerum. Beatae ratione ipsam fugiat at architecto quo, excepturi
+		soluta ducimus! Explicabo sapiente debitis, aliquid eaque deserunt sequi.
+		Tempore iste, fugit numquam tenetur dicta doloribus quos eveniet fugiat
+		veritatis nisi atque illum mollitia exercitationem impedit itaque? Non
+		necessitatibus delectus quaerat corporis. Quam sit minima fugiat repudiandae
+		itaque vel autem nihil possimus iste id cupiditate eaque impedit ducimus
+		unde aspernatur sequi reiciendis, ab amet perferendis? Quisquam autem
+		sapiente minus provident aperiam quod? Exercitationem dolore fugiat itaque
+		soluta dicta natus cum provident quia eos placeat qui tenetur repudiandae
+		dolorum facere beatae ex repellat fugit perspiciatis dignissimos minima
+		tempore at, dolorem doloremque quaerat. Excepturi? Delectus corporis ipsa
+		autem sunt. Eius sit consectetur perspiciatis totam facere quo, debitis
+		vitae autem aperiam facilis vero. Aliquam accusamus voluptas nostrum sequi
+		eveniet consectetur illum ea incidunt tempora recusandae. Aspernatur minima
+		ut necessitatibus magnam assumenda! Commodi aliquam neque, earum consequatur
+		molestiae necessitatibus esse quo culpa, aut sed officiis, fuga cumque!
+		Earum corporis tempore voluptatem sunt eaque ratione similique ad. Nobis
+		sapiente veritatis eum est culpa in ipsa modi voluptatem hic ab tempore sed
+		eaque, consectetur odio dolore doloremque dicta a aut odit architecto alias
+		obcaecati quaerat. Earum, quasi atque! Saepe odio, quis nesciunt tempora aut
+		illum. Placeat illum similique corporis accusamus assumenda voluptate minus,
+		beatae soluta totam alias fuga nobis cum eligendi voluptates inventore vero
+		tempore pariatur provident quasi! Ducimus, dolore et ut magni provident eum,
+		obcaecati quasi iure amet aliquam rem at. Praesentium saepe nesciunt
+		perspiciatis unde itaque, aspernatur, nemo sit assumenda dolor eos eveniet
+		ipsa corrupti quae. Pariatur recusandae magni doloremque dolorem libero
+		neque rerum voluptatibus. Voluptatum dicta incidunt neque alias veniam sunt
+		iusto rem placeat dolorum consectetur fugiat animi id, doloremque, quasi
+		aperiam quibusdam! Vero, nulla. Aperiam perferendis dolorem nihil corporis
+		quod? Earum quibusdam ipsum amet vel ratione iure quos fugit facilis iusto
+		odit alias provident quidem molestiae obcaecati dolore, assumenda beatae
+		aperiam perspiciatis. Quis, eos. At magni velit voluptas libero architecto,
+		esse ea odit temporibus quisquam quis officia corporis quasi, quas nihil
+		dolorem similique, eaque quia culpa modi recusandae quos officiis. Assumenda
+		perferendis iste molestiae! Consequuntur debitis voluptas velit quod nisi
+		eaque in sed natus ducimus corrupti repellat nostrum magni, esse saepe
+		soluta sint aliquid inventore animi alias temporibus! Mollitia sunt itaque
+		in error! Provident? Qui quod atque quo corrupti velit! Provident fuga
+		soluta error repellat maiores aut dolor, quis, animi debitis commodi
+		repellendus dolorum exercitationem, facilis similique eos aliquid ratione
+		nisi rerum tenetur architecto. Voluptatem ratione tenetur iste velit nam
+		cumque. Rem, commodi! Quis laborum dolor dolorem vitae velit? Quas quos
+		atque amet laudantium. Optio rem corporis sapiente corrupti assumenda
+		tenetur quos nemo eius. Doloremque beatae ipsa sequi corrupti incidunt!
+		Neque quos voluptatibus expedita voluptas, sunt possimus laudantium. Non
+		impedit facilis fugit adipisci rerum, soluta, odit sed dolore necessitatibus
+		perferendis, ut harum nihil. Amet? Praesentium mollitia eaque expedita
+		distinctio quos officiis illo reiciendis saepe assumenda debitis excepturi,
+		veritatis quis similique maiores modi consectetur? Nobis quas asperiores
+		dolores id laborum omnis laudantium velit ducimus eos. Accusamus porro
+		voluptatem qui iste quae, officiis nesciunt sint ad ex quasi odio molestias,
+		cupiditate provident possimus repudiandae rem non magni ut. Voluptatibus
+		quam velit architecto accusamus modi deleniti nisi! Possimus libero vero
+		similique enim voluptate iste magni, ipsam dignissimos atque officiis odit
+		officia consequatur reprehenderit iure nihil dolor quam corrupti ipsa illo
+		qui! Impedit obcaecati amet molestias at perspiciatis. Commodi nostrum ipsam
+		consequuntur rem? Laudantium sapiente nesciunt fuga, eius qui facere nulla
+		eum ea doloremque nemo impedit ducimus, repellendus natus nihil porro
+		inventore magni autem. Tempore dolore minima earum. At nisi ducimus
+		temporibus quibusdam animi tempora similique quas? Provident, hic ipsum.
+		Sapiente ratione consequatur consequuntur ducimus libero ab a id, nam,
+		veniam tempore nostrum explicabo fuga voluptates aliquid autem! Unde veniam
+		aperiam assumenda accusamus repudiandae vitae. Aliquid atque blanditiis quos
+		excepturi et beatae minima esse? Ullam corporis, doloribus, placeat nostrum
+		ab, deleniti sunt ex illum veritatis saepe esse quaerat.
+	</section>
+</main>
+
+		<footer role="contentinfo" class="auto-layout"></footer>
+<!-- padding for actions panel on mobile -->
+<div class="pb-32 md:pb-0"></div>
+
+
+		<script src="js/app.min.js"></script>
+	</body>
+</html>
