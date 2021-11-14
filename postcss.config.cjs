@@ -15,6 +15,7 @@ module.exports = {
 		require("postcss-focus-visible"),
 		require("tailwindcss/nesting")(require("postcss-nesting")),
 		require("tailwindcss"),
+		require("postcss-focus-visible"),
 		require("postcss-preset-env")({
 			stage: stage.aspirational,
 			preserve,
