@@ -3,12 +3,13 @@
 	<head>
 		<meta charset="utf-8" />
 		<!-- <base href="/"> -->
-		<meta charset="utf-8" />
-
-<title>Aurora Box</title>
+		<title>Aurora Box</title>
 <meta name="description" content="Shop" />
 <meta content="shop" name="keywords" />
-<link rel="canonical" href="https://aurora-box.pl/" />
+<link
+	rel="canonical"
+	href="https://nikitait.github.io/frontend-recruitment-task-header-with-menu/"
+/>
 <link
 	rel="preload"
 	as="font"
@@ -32,16 +33,32 @@
 />
 <meta
 	name="viewport"
-	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"
+	content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=2.0"
 />
 <meta name="theme-color" content="#ffffff" />
 
 <link rel="manifest" href="/site.json" />
 <script type="application/ld+json">
-	{}
+	{
+		"@context": "http://www.schema.org",
+		"@type": "LocalBusiness",
+		"name": "Aurora Box",
+		"priceRange": "100-5000",
+		"image": "https://nikitait.github.io/frontend-recruitment-task-header-with-menu/images/dist/seo/seo.svg#warranty-second-view",
+		"url": "https://nikitait.github.io/frontend-recruitment-task-header-with-menu/",
+		"description": "Order skirts, pants, jackets",
+		"address": {
+			"@type": "PostalAddress",
+			"streetAddress": "ул. Сантьяго-де-Куба, 8 строение 2",
+			"addressLocality": "Санкт-Петербург",
+			"postalCode": "000000",
+			"addressCountry": "Россия"
+		},
+		"openingHours": "Mo 09:00-21:00 Tu 09:00-21:00 We 09:00-21:00 Th 09:00-21:00 Fr 09:00-21:00 Sa 11:00-18:00"
+	}
 </script>
 
-<link rel="icon" href="images/favicon.png" />
+<link rel="icon" href="images/dist/favicon.png" />
 <meta property="og:image" content="images/dist/preview.jpg" />
 <!--order important-->
 <link rel="stylesheet" href="css/utils.min.css" />
@@ -67,13 +84,7 @@
 <div class="flex justify-between flex-wrap md:flex-nowrap md:w-full">
 	<div class="flex items-center pb-4 pt-3 md:pb-8 md:pt-6 lg:pb-12 lg:pt-9">
 		<figure>
-	<img
-		width="147px"
-		height="63px"
-		role="banner"
-		src="images/dist/logo.png"
-		alt="Aurora box"
-	/>
+	<img width="147" height="63" src="images/dist/logo.png" alt="Aurora box" />
 </figure>
 
 	</div>
@@ -203,8 +214,8 @@
 				<figure class="order__options">
 					<img
 						src="images/dist/miniatura.png"
-						width="59px"
-						height="78px"
+						width="59"
+						height="78"
 						alt="Biustonosz"
 					/>
 					<figcaption class="order__wrapper">
@@ -212,13 +223,17 @@
 						<div class="order__price">59.99 ZL</div>
 						<div class="">
 							<div class="">
-								<p>ilość <span class="">1</span></p>
+								<label>
+									ilość <input type="number" class="w-10 h-10" value="1" />
+								</label>
 							</div>
 							<div class="float-right">
 								<button class="inline-block w-4 h-4">
+									<span class="sr-only">edit</span>
 									<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
 								</button>
 								<button class="inline-block w-4 h-4">
+									<span class="sr-only">delete</span>
 									<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
 								</button>
 							</div>
@@ -230,8 +245,8 @@
 				<figure class="order__options">
 					<img
 						src="images/dist/miniatura.png"
-						width="59px"
-						height="78px"
+						width="59"
+						height="78"
 						alt="Biustonosz"
 					/>
 					<figcaption class="order__wrapper">
@@ -247,15 +262,17 @@
 							</legend>
 							<div class="">
 								<div class="">
-									<p>
+									<label>
 										ilość <input type="number" class="w-10 h-10" value="2" />
-									</p>
+									</label>
 								</div>
 								<div class="float-right">
 									<button class="inline-block w-4 h-4">
+										<span class="sr-only">edit</span>
 										<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
 									</button>
 									<button class="inline-block w-4 h-4">
+										<span class="sr-only">delete</span>
 										<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
 									</button>
 								</div>
@@ -483,7 +500,11 @@
 	aria-label="Types of goods"
 	class="md:relative md:-mt-4 lg:-mt-7"
 >
-	<input type="checkbox" id="menu-checkbox" class="sr-only hold-hash-params" />
+	<input
+	type="checkbox"
+	id="menu-checkbox"
+	class="sr-only md:hidden hold-hash-params"
+/>
 <span class="md:hidden cb-label-selector h-0 w-full flex justify-center">
 	<span class="w-0">
 		<label
@@ -545,8 +566,8 @@
 				class="interactive-control md:text-center lg:text-left"
 				for="Kategorie"
 			>
-				<span class="menu-checkbox--opened hidden"><</span>
-				<span class="menu-checkbox--closed hidden">></span>
+				<span class="menu-checkbox--opened hidden">&#x261A;</span>
+				<span class="menu-checkbox--closed hidden">&#x261B;</span>
 				Kategorie
 			</label>
 			<ul class="normal-case font-normal bg-white dropdown__content">
@@ -557,8 +578,8 @@
 						class="sr-only menu-item-checkbox"
 					/>
 					<label for="Biustonosze">
-						<span class="menu-checkbox--opened hidden"><</span>
-						<span class="menu-checkbox--closed hidden">></span>
+						<span class="menu-checkbox--opened hidden">&#x261A;</span>
+						<span class="menu-checkbox--closed hidden">&#x261B;</span>
 						Biustonosze
 					</label>
 					<ul class="dropdown__content">
@@ -578,8 +599,8 @@
 						class="sr-only menu-item-checkbox"
 					/>
 					<label for="Biustonosze3">
-						<span class="menu-checkbox--opened hidden"><</span>
-						<span class="menu-checkbox--closed hidden">></span>
+						<span class="menu-checkbox--opened hidden">&#x261A;</span>
+						<span class="menu-checkbox--closed hidden">&#x261B;</span>
 						Biustonosze3
 					</label>
 					<ul class="bg-white dropdown__content">
@@ -603,8 +624,8 @@
 						class="sr-only menu-item-checkbox"
 					/>
 					<label for="Biustonosze2">
-						<span class="menu-checkbox--opened hidden"><</span>
-						<span class="menu-checkbox--closed hidden">></span>
+						<span class="menu-checkbox--opened hidden">&#x261A;</span>
+						<span class="menu-checkbox--closed hidden">&#x261B;</span>
 						Biustonosze2
 					</label>
 					<ul class="bg-green-500 dropdown__content">
@@ -624,8 +645,8 @@
 		<li class="navigation__link dropdown">
 			<input type="checkbox" id="Nowości" class="sr-only menu-item-checkbox" />
 			<label class="interactive-control md:text-center px-2" for="Nowości">
-				<span class="menu-checkbox--opened hidden"><</span>
-				<span class="menu-checkbox--closed hidden">></span>
+				<span class="menu-checkbox--opened hidden">&#x261A;</span>
+				<span class="menu-checkbox--closed hidden">&#x261B;</span>
 				Nowości
 			</label>
 			<ul class="normal-case font-normal dropdown__content">
