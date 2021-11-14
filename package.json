@@ -5,6 +5,7 @@
 	"main": "index.js",
 	"author": "Nikita Fedorov",
 	"type": "module",
+	"homepage": "https://nikitait.github.io/frontend-recruitment-task-header-with-menu",
 	"browserslist": [
 		"ie 11",
 		"last 1 Chrome versions",
@@ -16,7 +17,9 @@
 	"scripts": {
 		"start": "npx gulp",
 		"build": "npx gulp build",
-		"test-after-start": "pa11y --runner axe --runner htmlcs http://localhost:3000"
+		"test-after-start": "pa11y --runner axe --runner htmlcs http://localhost:3000",
+		"predeploy": "npm run build",
+		"deploy": "npx gh-pages -d dist"
 	},
 	"devDependencies": {
 		"@babel/core": "^7.15.8",
