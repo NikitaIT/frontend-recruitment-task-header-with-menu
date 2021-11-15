@@ -1,5 +1,6 @@
-<ul class="pt-6 flex flex-col space-y-5 pb-5">
-	<li class="flex-1">
+<!-- excluded by ie - pt-6 space-y-5 pb-5 -->
+<ul class="flex flex-col ie:table border-separate">
+	<li class="table-row">
 		<figure class="order__options">
 			<img
 				src="images/dist/miniatura.png"
@@ -8,12 +9,12 @@
 				alt="Biustonosz"
 			/>
 			<figcaption class="order__wrapper">
-				<fieldset class="h-full">
+				<fieldset class="not-ie:h-full">
 					<legend>
 						<h2 class="order__desctiption">Biustonosz push-up line mos 12</h2>
 						<strong class="order__price">59.00 zł</strong>
 					</legend>
-					<div class="flex justify-between items-end h-full">
+					<div class="flex justify-between items-end not-ie:h-full">
 						<!-- pr-10 - for big click area -->
 						<label class="text-sm pr-10">
 							ilość:
@@ -27,7 +28,7 @@
 									border
 									rounded-sm
 									form-input
-									px-1.5
+									not-ie-px-1.5
 									customize-spin-button
 								"
 								value="1"
@@ -64,7 +65,7 @@
 			</figcaption>
 		</figure>
 	</li>
-	<li>
+	<li class="table-row">
 		<figure class="order__options">
 			<img
 				src="images/dist/miniatura.png"
@@ -73,7 +74,7 @@
 				alt="Biustonosz"
 			/>
 			<figcaption class="order__wrapper">
-				<fieldset class="h-full">
+				<fieldset class="not-ie:h-full">
 					<legend>
 						<h2 class="order__desctiption order__desctiption_promo">
 							Biustonosz push-up line re 6
@@ -83,7 +84,7 @@
 							>79.00 zł <s class="order__price_promo">109.00 zł</s></strong
 						>
 					</legend>
-					<div class="flex justify-between items-end h-full">
+					<div class="flex justify-between items-end not-ie:h-full">
 						<!-- pr-10 - for big click area -->
 						<label class="text-sm pr-10">
 							ilość:
@@ -97,7 +98,7 @@
 									border
 									rounded-sm
 									form-input
-									px-1.5
+									not-ie-px-1.5
 									customize-spin-button
 								"
 								value="2"
