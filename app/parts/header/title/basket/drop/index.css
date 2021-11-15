@@ -16,14 +16,14 @@
 }
 
 .order__wrapper {
-	@apply px-3 h-20 w-full flex flex-col flex-nowrap;
+	@apply pl-3 h-20 w-full flex flex-col flex-nowrap;
 }
 
 .order__price {
-	@apply text-sm leading-normal;
+	@apply text-base leading-normal;
 }
 .order__price_promo {
-	@apply text-accent text-xs;
+	@apply text-accent text-xs pl-1;
 }
 
 .order__desctiption {

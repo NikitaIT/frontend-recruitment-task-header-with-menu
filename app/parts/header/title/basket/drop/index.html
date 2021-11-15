@@ -5,89 +5,25 @@
 	class="bg-white h-full py-4"
 	aria-labelledby="basket-dialog-title"
 >
-	<form action="#">
-		<div>
-			<div id="basket-dialog-title" class="text-sm">
-				Produkty w koszyku: <strong>2</strong>
+	<form action="#" class="px-5 pt-6 max-w-md mx-auto">
+		<dl class="pb-3 table border-separate">
+			<div class="table-row text-sm">
+				<dt id="basket-dialog-title" class="table-cell pr-2">
+					Produkty w koszyku:
+				</dt>
+				<dd class="table-cell"><strong>2</strong></dd>
 			</div>
-			<div class="text-base">Kwota do zapłaty: <strong>240 PLN</strong></div>
+			<div class="table-row">
+				<dt class="text-base table-cell pr-2">Kwota do zapłaty:</dt>
+				<dd class="table-cell"><strong class="text-xl">207.00 zł</strong></dd>
+			</div>
+		</dl>
+		<hr />
+		<!--#include virtual="/parts/header/title/basket/order-list/index.html" -->
+		<hr />
+		<div class="flex w-full justify-center">
+			<!--#include virtual="/parts/header/title/basket/action-button.html" -->
 		</div>
-		<hr />
-		<ul class="">
-			<li>
-				<figure class="order__options">
-					<img
-						src="images/dist/miniatura.png"
-						width="59"
-						height="78"
-						alt="Biustonosz"
-					/>
-					<figcaption class="order__wrapper">
-						<div class="order__desctiption">Biustonosz push-up line mos 12</div>
-						<div class="order__price">59.99 ZL</div>
-						<div class="">
-							<div class="">
-								<label>
-									ilość <input type="number" class="w-10 h-10" value="1" />
-								</label>
-							</div>
-							<div class="float-right">
-								<button class="inline-block w-4 h-4">
-									<span class="sr-only">edit</span>
-									<!--#include virtual="/parts/svg/edit/pencil.svg" -->
-								</button>
-								<button class="inline-block w-4 h-4">
-									<span class="sr-only">delete</span>
-									<!--#include virtual="/parts/svg/edit/bin.svg" -->
-								</button>
-							</div>
-						</div>
-					</figcaption>
-				</figure>
-			</li>
-			<li>
-				<figure class="order__options">
-					<img
-						src="images/dist/miniatura.png"
-						width="59"
-						height="78"
-						alt="Biustonosz"
-					/>
-					<figcaption class="order__wrapper">
-						<fieldset>
-							<legend>
-								<span class="order__desctiption order__desctiption_promo"
-									>Biustonosz push-up line re 6</span
-								>
-								<!-- <s> - "no longer relevant" -->
-								<span class="order__price"
-									>59.99 ZL <s class="order__price_promo">109.00 ZL</s></span
-								>
-							</legend>
-							<div class="">
-								<div class="">
-									<label>
-										ilość <input type="number" class="w-10 h-10" value="2" />
-									</label>
-								</div>
-								<div class="float-right">
-									<button class="inline-block w-4 h-4">
-										<span class="sr-only">edit</span>
-										<!--#include virtual="/parts/svg/edit/pencil.svg" -->
-									</button>
-									<button class="inline-block w-4 h-4">
-										<span class="sr-only">delete</span>
-										<!--#include virtual="/parts/svg/edit/bin.svg" -->
-									</button>
-								</div>
-							</div>
-						</fieldset>
-					</figcaption>
-				</figure>
-			</li>
-		</ul>
-		<hr />
-		<button type="submit">Zobacz koszyk</button>
 	</form>
 	<!-- TODO: Reuse button as component, dont forgot about sr-only -->
 	<a

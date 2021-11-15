@@ -40,6 +40,7 @@
 		"gulp-noop": "^1.0.1",
 		"gulp-postcss": "^9.0.1",
 		"gulp-rsync": "0.0.9",
+		"mini-svg-data-uri": "^1.4.3",
 		"pa11y": "^6.1.0",
 		"postcss": "^8.3.11",
 		"postcss-focus-visible": "^6.0.1",

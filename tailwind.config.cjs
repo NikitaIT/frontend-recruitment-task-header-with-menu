@@ -1,6 +1,7 @@
 const {
 	colors: { white, black },
 } = require("tailwindcss/defaultTheme");
+const forms = require("./forms.config.cjs");
 
 module.exports = {
 	mode: "jit",
@@ -70,6 +71,7 @@ module.exports = {
 				300: "#eeeeee", // popup border, content splitter line
 				400: "#d3d3d3", // default border
 				500: "#cbcbcb", // input border
+				700: "#a3a2a2", // input placeholder
 			},
 			accent: {
 				// now in red-pink scale
@@ -82,9 +84,17 @@ module.exports = {
 			...theme("colors"),
 			DEFAULT: theme("colors.gray.400", "currentColor"),
 		}),
-		extend: {},
+		extend: {
+			lineHeight: {
+				11: "2.875rem",
+			},
+		},
 	},
 	darkMode: false,
 	variants: { extend: {} },
-	plugins: [],
+	plugins: [
+		forms({
+			strategy: "class",
+		}),
+	],
 };
