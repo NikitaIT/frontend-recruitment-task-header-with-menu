@@ -156,7 +156,14 @@
 	<div>
 		<!-- For "h-full" - should have "block" parent -->
 		<div class="w-auto h-full flex items-center lg:mr-8">
-			<a
+			<div
+	class="
+		basket-wrapper
+		flex
+		md:drop-group md:hover:drop-group md:focus-within:drop-group
+	"
+>
+	<a
 	id="open-basket-button"
 	role="button"
 	class="block w-auto group"
@@ -196,102 +203,233 @@
 		<span class="sr-only">items</span>
 	</span>
 </a>
-<div
+
+	<div class="drop-me drop-me-y z-50 md:pt-20">
+		<div class="-mt-4 drop-basket md:popup-w-min">
+			<div
 	id="basket"
 	tabindex="-1"
 	role="dialog"
-	class="hidden z-50 bg-white h-full py-4"
+	class="bg-white h-full py-4 md:py-0"
 	aria-labelledby="basket-dialog-title"
 >
-	<form action="#">
-		<div>
-			<div id="basket-dialog-title" class="text-sm">
-				Produkty w koszyku: <strong>2</strong>
-			</div>
-			<div class="text-base">Kwota do zapłaty: <strong>240 PLN</strong></div>
-		</div>
-		<hr />
-		<ul class="">
-			<li>
-				<figure class="order__options">
-					<img
-						src="images/dist/miniatura.png"
-						width="59"
-						height="78"
-						alt="Biustonosz"
-					/>
-					<figcaption class="order__wrapper">
-						<div class="order__desctiption">Biustonosz push-up line mos 12</div>
-						<div class="order__price">59.99 ZL</div>
-						<div class="">
-							<div class="">
-								<label>
-									ilość <input type="number" class="w-10 h-10" value="1" />
-								</label>
-							</div>
-							<div class="float-right">
-								<button class="inline-block w-4 h-4">
-									<span class="sr-only">edit</span>
-									<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-								</button>
-								<button class="inline-block w-4 h-4">
-									<span class="sr-only">delete</span>
-									<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-								</button>
-							</div>
+	<div class="relative px-5 pt-6 max-w-md mx-auto">
+		<form action="#" class="">
+			<dl class="pb-3 table border-separate">
+				<div class="table-row text-sm">
+					<dt id="basket-dialog-title" class="table-cell pr-2">
+						Produkty w koszyku:
+					</dt>
+					<dd class="table-cell"><strong>2</strong></dd>
+				</div>
+				<div class="table-row">
+					<dt class="text-base table-cell pr-2">Kwota do zapłaty:</dt>
+					<dd class="table-cell"><strong class="text-xl">207.00 zł</strong></dd>
+				</div>
+			</dl>
+			<hr />
+			<!-- excluded by ie - pt-6 space-y-5 pb-5 -->
+<ul class="flex flex-col ie:table border-separate">
+	<li class="table-row">
+		<figure class="order__options">
+			<img
+				src="images/dist/miniatura.png"
+				width="59"
+				height="78"
+				alt="Biustonosz"
+			/>
+			<figcaption class="order__wrapper">
+				<fieldset class="not-ie:h-full">
+					<legend>
+						<h2 class="order__desctiption">Biustonosz push-up line mos 12</h2>
+						<strong class="order__price">59.00 zł</strong>
+					</legend>
+					<div class="flex justify-between items-end not-ie:h-full">
+						<!-- pr-10 - for big click area -->
+						<label class="text-sm pr-10">
+							ilość:
+							<input
+								type="number"
+								class="
+									ml-1
+									text-sm
+									w-6
+									h-6
+									border
+									rounded-sm
+									form-input
+									not-ie-px-1.5
+									customize-spin-button
+								"
+								value="1"
+							/>
+						</label>
+						<div>
+							<button
+								class="
+									inline-block
+									hover:text-accent
+									focus:text-accent-light
+									w-4
+									h-4
+								"
+							>
+								<span class="sr-only">edit</span>
+								<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+							</button>
+							<button
+								class="
+									inline-block
+									hover:text-accent
+									focus:text-accent-light
+									w-4
+									h-4
+								"
+							>
+								<span class="sr-only">delete</span>
+								<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+							</button>
 						</div>
-					</figcaption>
-				</figure>
-			</li>
-			<li>
-				<figure class="order__options">
-					<img
-						src="images/dist/miniatura.png"
-						width="59"
-						height="78"
-						alt="Biustonosz"
-					/>
-					<figcaption class="order__wrapper">
-						<fieldset>
-							<legend>
-								<span class="order__desctiption order__desctiption_promo"
-									>Biustonosz push-up line re 6</span
-								>
-								<!-- <s> - "no longer relevant" -->
-								<span class="order__price"
-									>59.99 ZL <s class="order__price_promo">109.00 ZL</s></span
-								>
-							</legend>
-							<div class="">
-								<div class="">
-									<label>
-										ilość <input type="number" class="w-10 h-10" value="2" />
-									</label>
-								</div>
-								<div class="float-right">
-									<button class="inline-block w-4 h-4">
-										<span class="sr-only">edit</span>
-										<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
-									</button>
-									<button class="inline-block w-4 h-4">
-										<span class="sr-only">delete</span>
-										<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
-									</button>
-								</div>
-							</div>
-						</fieldset>
-					</figcaption>
-				</figure>
-			</li>
-		</ul>
-		<hr />
-		<button type="submit">Zobacz koszyk</button>
-	</form>
-	<a role="button" class="sr-only focus:not-sr-only" href="#open-basket-button"
-		>close</a
-	>
+					</div>
+				</fieldset>
+			</figcaption>
+		</figure>
+	</li>
+	<li class="table-row">
+		<figure class="order__options">
+			<img
+				src="images/dist/miniatura.png"
+				width="59"
+				height="78"
+				alt="Biustonosz"
+			/>
+			<figcaption class="order__wrapper">
+				<fieldset class="not-ie:h-full">
+					<legend>
+						<h2 class="order__desctiption order__desctiption_promo">
+							Biustonosz push-up line re 6
+						</h2>
+						<!-- <s> - "no longer relevant" -->
+						<strong class="order__price"
+							>79.00 zł <s class="order__price_promo">109.00 zł</s></strong
+						>
+					</legend>
+					<div class="flex justify-between items-end not-ie:h-full">
+						<!-- pr-10 - for big click area -->
+						<label class="text-sm pr-10">
+							ilość:
+							<input
+								type="number"
+								class="
+									ml-1
+									text-sm
+									w-6
+									h-6
+									border
+									rounded-sm
+									form-input
+									not-ie-px-1.5
+									customize-spin-button
+								"
+								value="2"
+							/>
+						</label>
+						<div>
+							<button
+								class="
+									inline-block
+									hover:text-accent
+									focus:text-accent-light
+									w-4
+									h-4
+								"
+							>
+								<span class="sr-only">edit</span>
+								<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"></path></svg>
+							</button>
+							<button
+								class="
+									inline-block
+									hover:text-accent
+									focus:text-accent-light
+									w-4
+									h-4
+								"
+							>
+								<span class="sr-only">delete</span>
+								<svg width="100%" height="100%" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+							</button>
+						</div>
+					</div>
+				</fieldset>
+			</figcaption>
+		</figure>
+	</li>
+</ul>
+
+			<hr />
+			<div class="flex w-full justify-center">
+				<button
+	type="submit"
+	class="
+		my-5
+		text-button text-on-accent
+		hover:bg-accent-light
+		focus:bg-accent-light
+		rounded-sm
+		px-11
+		leading-11
+	"
+>
+	Zobacz koszyk
+</button>
+
+			</div>
+		</form>
+		<!-- TODO: Reuse button as component, dont forgot about sr-only -->
+		<a
+			role="button"
+			class="
+				absolute
+				top-2
+				right-4
+				text-accent
+				hover:bg-accent hover:text-white
+				focus:text-white focus:bg-accent-light
+				rounded-full
+				bg-white
+				p-4
+				md:sr-only md:focus:not-sr-only
+			"
+			href="#open-basket-button"
+		>
+			<span class="">
+				<span class="sr-only">close basket</span>
+				<span class="">
+					<svg
+						
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<line x1="18" y1="6" x2="6" y2="18"></line>
+						<line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+				</span>
+			</span>
+		</a>
+	</div>
 </div>
 
+		</div>
+	</div>
+</div>
 
 		</div>
 	</div>
@@ -523,8 +661,8 @@
 			"
 		>
 			<span class="sr-only">open mobile menu</span>
-			<svg
-				class="menu-checkbox--closed"
+			<span class="menu-checkbox--closed">
+				<svg
 				xmlns="http://www.w3.org/2000/svg"
 				width="24"
 				height="24"
@@ -538,28 +676,37 @@
 				<line x1="3" y1="12" x2="21" y2="12"></line>
 				<line x1="3" y1="6" x2="21" y2="6"></line>
 				<line x1="3" y1="18" x2="21" y2="18"></line>
-			</svg>
-			<svg
-				class="menu-checkbox--opened"
-				xmlns="http://www.w3.org/2000/svg"
-				width="24"
-				height="24"
-				viewBox="0 0 24 24"
-				fill="none"
-				stroke="currentColor"
-				stroke-width="2"
-				stroke-linecap="round"
-				stroke-linejoin="round"
-			>
-				<line x1="18" y1="6" x2="6" y2="18"></line>
-				<line x1="6" y1="6" x2="18" y2="18"></line>
-			</svg>
+</svg>
+			</span>
+			<span class="menu-checkbox--opened">
+				<svg
+						
+						xmlns="http://www.w3.org/2000/svg"
+						width="24"
+						height="24"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="2"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+					>
+						<line x1="18" y1="6" x2="6" y2="18"></line>
+						<line x1="6" y1="6" x2="18" y2="18"></line>
+</svg>
+			</span>
 		</label>
 	</span>
 </span>
 
 	<ul class="navigation text-base font-bold uppercase all-first-upper md:flex">
-		<li class="navigation__link dropdown">
+		<li
+			class="
+				navigation__link
+				dropdown
+				md:drop-group md:hover:drop-group md:focus-within:drop-group
+			"
+		>
 			<input
 				type="checkbox"
 				id="Kategorie"
@@ -573,8 +720,21 @@
 				<span class="menu-checkbox--closed hidden">&#x261B;</span>
 				Kategorie
 			</label>
-			<ul class="normal-case font-normal bg-white dropdown__content">
-				<li class="dropdown__item dropdown">
+			<ul
+				class="
+					normal-case
+					font-normal
+					dropdown__content
+					drop-box drop-me drop-me-y
+				"
+			>
+				<li
+					class="
+						drop-box__row
+						dropdown
+						md:drop-group md:hover:drop-group md:focus-within:drop-group
+					"
+				>
 					<input
 						type="checkbox"
 						id="Biustonosze"
@@ -585,17 +745,24 @@
 						<span class="menu-checkbox--closed hidden">&#x261B;</span>
 						Biustonosze
 					</label>
-					<ul class="dropdown__content">
-						<li class="dropdown__item"><a href="#">Bardotka</a></li>
-						<li class="dropdown__item"><a href="#">Minimizer</a></li>
-						<li class="dropdown__item"><a href="#">Multiway</a></li>
-						<li class="dropdown__item"><a href="#">Push-up</a></li>
-						<li class="dropdown__item"><a href="#">Soft</a></li>
-						<li class="dropdown__item"><a href="#">Sportowe</a></li>
-						<li class="dropdown__item"><a href="#">usztywniane</a></li>
+					<ul class="dropdown__content drop-box drop-me drop-me-x">
+						<li class="drop-box__row"><a href="#">Bardotka</a></li>
+<li class="drop-box__row"><a href="#">Minimizer</a></li>
+<li class="drop-box__row"><a href="#">Multiway</a></li>
+<li class="drop-box__row"><a href="#">Push-up</a></li>
+<li class="drop-box__row"><a href="#">Soft</a></li>
+<li class="drop-box__row"><a href="#">Sportowe</a></li>
+<li class="drop-box__row"><a href="#">usztywniane</a></li>
+
 					</ul>
 				</li>
-				<li class="dropdown__item dropdown">
+				<li
+					class="
+						drop-box__row
+						dropdown
+						md:drop-group md:hover:drop-group md:focus-within:drop-group
+					"
+				>
 					<input
 						type="checkbox"
 						id="Biustonosze3"
@@ -606,21 +773,27 @@
 						<span class="menu-checkbox--closed hidden">&#x261B;</span>
 						Biustonosze3
 					</label>
-					<ul class="bg-white dropdown__content">
-						<li class="dropdown__item"><a href="#">Bardotka3</a></li>
-						<li class="dropdown__item"><a href="#">Minimizer3</a></li>
-						<li class="dropdown__item"><a href="#">Multiway3</a></li>
-						<li class="dropdown__item"><a href="#">Push-up3</a></li>
-						<li class="dropdown__item"><a href="#">Soft3</a></li>
-						<li class="dropdown__item"><a href="#">Sportowe3</a></li>
-						<li class="dropdown__item"><a href="#">usztywniane3</a></li>
+					<ul class="dropdown__content drop-box drop-me drop-me-x">
+						<li class="drop-box__row"><a href="#">Bardotka3</a></li>
+						<li class="drop-box__row"><a href="#">Minimizer3</a></li>
+						<li class="drop-box__row"><a href="#">Multiway3</a></li>
+						<li class="drop-box__row"><a href="#">Push-up3</a></li>
+						<li class="drop-box__row"><a href="#">Soft3</a></li>
+						<li class="drop-box__row"><a href="#">Sportowe3</a></li>
+						<li class="drop-box__row"><a href="#">usztywniane3</a></li>
 					</ul>
 				</li>
-				<li class="dropdown__item"><a href="#">Body</a></li>
-				<li class="dropdown__item"><a href="#">Majtki</a></li>
-				<li class="dropdown__item"><a href="#">Stroje kąpielowe</a></li>
-				<li class="dropdown__item"><a href="#">Bielizna erotyczna</a></li>
-				<li class="dropdown__item dropdown">
+				<li class="drop-box__row"><a href="#">Body</a></li>
+				<li class="drop-box__row"><a href="#">Majtki</a></li>
+				<li class="drop-box__row"><a href="#">Stroje kąpielowe</a></li>
+				<li class="drop-box__row"><a href="#">Bielizna erotyczna</a></li>
+				<li
+					class="
+						drop-box__row
+						dropdown
+						md:drop-group md:hover:drop-group md:focus-within:drop-group
+					"
+				>
 					<input
 						type="checkbox"
 						id="Biustonosze2"
@@ -631,35 +804,48 @@
 						<span class="menu-checkbox--closed hidden">&#x261B;</span>
 						Biustonosze2
 					</label>
-					<ul class="bg-green-500 dropdown__content">
-						<li class="dropdown__item"><a href="#">Bardotka2</a></li>
-						<li class="dropdown__item"><a href="#">Minimizer2</a></li>
-						<li class="dropdown__item"><a href="#">Multiway2</a></li>
-						<li class="dropdown__item"><a href="#">Push-up2</a></li>
-						<li class="dropdown__item"><a href="#">Soft2</a></li>
-						<li class="dropdown__item"><a href="#">Sportowe2</a></li>
-						<li class="dropdown__item"><a href="#">usztywniane2</a></li>
+					<ul class="dropdown__content drop-box drop-me drop-me-x">
+						<li class="drop-box__row"><a href="#">Bardotka2</a></li>
+						<li class="drop-box__row"><a href="#">Minimizer2</a></li>
+						<li class="drop-box__row"><a href="#">Multiway2</a></li>
+						<li class="drop-box__row"><a href="#">Push-up2</a></li>
+						<li class="drop-box__row"><a href="#">Soft2</a></li>
+						<li class="drop-box__row"><a href="#">Sportowe2</a></li>
+						<li class="drop-box__row"><a href="#">usztywniane2</a></li>
 					</ul>
 				</li>
-				<li class="dropdown__item"><a href="#">Stroje sportowe</a></li>
-				<li class="dropdown__item"><a href="#">bielizna wieczorowa</a></li>
+				<li class="drop-box__row"><a href="#">Stroje sportowe</a></li>
+				<li class="drop-box__row"><a href="#">bielizna wieczorowa</a></li>
 			</ul>
 		</li>
-		<li class="navigation__link dropdown">
+		<li
+			class="
+				navigation__link
+				dropdown
+				md:drop-group md:hover:drop-group md:focus-within:drop-group
+			"
+		>
 			<input type="checkbox" id="Nowości" class="sr-only menu-item-checkbox" />
 			<label class="interactive-control md:text-center px-2" for="Nowości">
 				<span class="menu-checkbox--opened hidden">&#x261A;</span>
 				<span class="menu-checkbox--closed hidden">&#x261B;</span>
 				Nowości
 			</label>
-			<ul class="normal-case font-normal dropdown__content">
-				<li class="dropdown__item"><a href="#">Bardotka</a></li>
-				<li class="dropdown__item"><a href="#">Minimizer</a></li>
-				<li class="dropdown__item"><a href="#">Multiway</a></li>
-				<li class="dropdown__item"><a href="#">Push-up</a></li>
-				<li class="dropdown__item"><a href="#">Soft</a></li>
-				<li class="dropdown__item"><a href="#">Sportowe</a></li>
-				<li class="dropdown__item"><a href="#">usztywniane</a></li>
+			<ul
+				class="
+					normal-case
+					font-normal
+					dropdown__content
+					drop-box drop-me drop-me-y
+				"
+			>
+				<li class="drop-box__row"><a href="#">Bardotka</a></li>
+				<li class="drop-box__row"><a href="#">Minimizer</a></li>
+				<li class="drop-box__row"><a href="#">Multiway</a></li>
+				<li class="drop-box__row"><a href="#">Push-up</a></li>
+				<li class="drop-box__row"><a href="#">Soft</a></li>
+				<li class="drop-box__row"><a href="#">Sportowe</a></li>
+				<li class="drop-box__row"><a href="#">usztywniane</a></li>
 			</ul>
 		</li>
 		<li class="navigation__link">
