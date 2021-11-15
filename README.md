@@ -1,70 +1,40 @@
-<img  src="https://github.com/auroracreation/frontend-recruitment-task-header-with-menu/blob/master/logo.png"  alt="Aurora Creation logo"/>
+# Below there are screenshots in browsers
 
-# Zadanie rekrutacyjne Frontend - stworzenie headera wraz z menu
+1. Everything is done without using JS, only HTML / CSS.
+2. Standard breakpoints are used.
+3. For mobile, I used standard interface design patterns:
 
-## Treść
+- Action bar at the bottom
+- Menu button at the bottom, closer to the fingers.
+- All pop-ups are full screen. Although it is the best choice for desktop applications.
 
-Twoim zadaniem będzie stworzenie **jedynie** elementu header z menu (nie całej strony). Głównym celem ćwiczenia jest sprawdzenie jak radzisz sobie z kodowaniem szablonu z PSD do HTML.
+1. PostCSS as an industry standard. And JIT Tailwind preprocessor, I used to use compass sass and many others, but now it is overkill.
+2. Gulp as the industry standard.
+3. External libraries used only for assembly.
 
-W twoim rozwiązaniu muszą się znaleźć **jedynie** elementy:
+## What you should pay attention to?
 
-- górna belka
-- logo, wyszukiwarka, koszyk
-- menu kategorii
+1. Correct semantic HTML-code.
+2. I used FlexBox, but sometimes it was faster to use a table layout. Grid is very limited in its use and transpilation.
+3. Below there are screenshots from different devices.
+4. Variables are low-level enough, therefore, their direct use should be avoided, to maintain constraints there is a design system.
+5. I've used BEM for most of my career. However, it is now outdated, like many other approaches to maintaining constraints. So I stick with functional CSS as needed.
+6. More than 40 commits in the repository were made by me.
+7. I didn't animate anything except the drop-down menu. Just because it needs a color palette to do it, but there are only 50 shades of gray in the layout.
 
-## Plik źródłowy
+## What should I avoid?
 
-W folderze src znajdziesz plik z zadaniem w formacie .psd. Rozwiąż zadanie na jego podstawie.
+1. It would be strange to use something like Bootstrap. Usually they use grids from libraries, but for this the designer must follow the rhythm and use a grid.
 
-## Co musi być zawarte w rozwiązaniu?
+## Browsers
 
-1. Użycie HTML i CSS do rozwiązania zadania.
-2. RWD - użyj breakpointów wedle własnego uznania.
-3. Podejście mobile first
-4. Zadanie musi być dostarczone w postaci linku do repozytorium GitHub.
+Alas, I don't have Safari.
 
-## Co może (ale nie musi) być zawarte w rozwiązaniu
+## What will we look for when evaluating?
 
-1. Preprocesor CSS np.: Less,
-2. Managera pakietów wraz z taskrunnerem np.: Grunt,
-3. Zewnętrzna biblioteka/i JS - jeśli uznasz za konieczne.
-
-## Na co warto zwrócić uwagę?
-
-1. Poprawny, semantyczny kod HTML.
-2. Użycie layout model flexbox i/lub grid.
-3. Poprawny wygląd na różnych urządzeniach, systemach operacyjnych i przeglądarkach.
-4. Używanie zmiennych CSS.
-5. Używanie metodyk CSS (np. SMACSS).
-6. Korzystanie z systemu kontroli wersji podczas pracy.
-7. Animacje na elementach, które mogą tego wymagać (np. przyciski).
-8. Struktura projektu - np. oddzielne pliki CSS.
-
-## Czego należy unikać?
-
-1. Nie możesz używać bibliotek czy frameworków pokroju Bootstrapa czy Foundation. Chcemy zobaczyć jak tworzysz layout bez ich użycia.
-
-## Przeglądarki
-
-Rozwiązanie powinno działać na następujących wersjach przeglądarek:
-
-1. Firefox (najnowsza)
-2. Chrome (najnowsza)
-3. Edge (najnowsza)
-4. Internet Explorer 11
-5. Safari (najnowsza)
-
-## Na co zwrócimy uwagę przy ocenie?
-
-1. Poprawność kodu HTML i CSS. Sprawdź swój kod w W3C Validator.
-2. Spójność w nazewnictwie elementów.
-3. Reużywalne style i elementy.
-4. Reużywalny kod (zasada [DRY](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself)).
-5. Dbałość o szczegóły.
-6. Optymalizacja kodu.
-7. Dobre praktyki programistyczne.
-8. Strona wyglądająca tak samo niezależnie od przeglądarki.
-9. Mobile first
+1. I checked in the W3C, there are some warnings about roles, however they are based on the assumption that the html document will never change again.
+2. Almost all styles and elements are reusable.
+3. Hard to follow DRY without using a good templating engine.
 
 ## Browser Test
 
