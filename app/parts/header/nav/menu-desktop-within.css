@@ -16,7 +16,7 @@
 }
 
 @media screen(md) {
-	.md\:drop-group {
+	nav .md\:drop-group {
 		& .drop-box {
 			@apply py-3 border-gray-300 border-4 bg-white;
 			min-width: 23ch;

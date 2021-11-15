@@ -4,8 +4,6 @@
 		@apply max-h-0 max-w-0 overflow-hidden;
 	}
 
-	/* for debug  */
-	[id="basket"],
 	[id="basket"]:focus-within,
 	[id="basket"]:focus {
 		/* like drop-group restore, but visible (need tab nav by <a>) */

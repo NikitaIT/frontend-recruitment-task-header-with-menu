@@ -1,1 +1,19 @@
 @import "./drop/index.css";
+
+@media screen(md) {
+	.basket-wrapper.md\:drop-group {
+		& .drop-basket {
+			@apply border-gray-300 border-4 bg-white  -mr-8;
+		}
+		/* behavior */
+		& .drop-me {
+			/* top: calc(100% - 0.25rem); */
+		}
+		& .drop-me-y {
+			@apply right-0 -top-3;
+		}
+	}
+	.md\:popup-w-min {
+		min-width: 342px;
+	}
+}

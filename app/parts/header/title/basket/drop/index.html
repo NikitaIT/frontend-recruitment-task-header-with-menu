@@ -2,42 +2,53 @@
 	id="basket"
 	tabindex="-1"
 	role="dialog"
-	class="bg-white h-full py-4"
+	class="bg-white h-full py-4 md:py-0"
 	aria-labelledby="basket-dialog-title"
 >
-	<form action="#" class="px-5 pt-6 max-w-md mx-auto">
-		<dl class="pb-3 table border-separate">
-			<div class="table-row text-sm">
-				<dt id="basket-dialog-title" class="table-cell pr-2">
-					Produkty w koszyku:
-				</dt>
-				<dd class="table-cell"><strong>2</strong></dd>
+	<div class="relative px-5 pt-6 max-w-md mx-auto">
+		<form action="#" class="">
+			<dl class="pb-3 table border-separate">
+				<div class="table-row text-sm">
+					<dt id="basket-dialog-title" class="table-cell pr-2">
+						Produkty w koszyku:
+					</dt>
+					<dd class="table-cell"><strong>2</strong></dd>
+				</div>
+				<div class="table-row">
+					<dt class="text-base table-cell pr-2">Kwota do zapłaty:</dt>
+					<dd class="table-cell"><strong class="text-xl">207.00 zł</strong></dd>
+				</div>
+			</dl>
+			<hr />
+			<!--#include virtual="/parts/header/title/basket/order-list/index.html" -->
+			<hr />
+			<div class="flex w-full justify-center">
+				<!--#include virtual="/parts/header/title/basket/action-button.html" -->
 			</div>
-			<div class="table-row">
-				<dt class="text-base table-cell pr-2">Kwota do zapłaty:</dt>
-				<dd class="table-cell"><strong class="text-xl">207.00 zł</strong></dd>
-			</div>
-		</dl>
-		<hr />
-		<!--#include virtual="/parts/header/title/basket/order-list/index.html" -->
-		<hr />
-		<div class="flex w-full justify-center">
-			<!--#include virtual="/parts/header/title/basket/action-button.html" -->
-		</div>
-	</form>
-	<!-- TODO: Reuse button as component, dont forgot about sr-only -->
-	<a
-		role="button"
-		class="flex w-full justify-center md:sr-only md:focus:not-sr-only"
-		href="#open-basket-button"
-	>
-		<span
-			class="fixed bottom-9 text-accent border-b-4 rounded-full bg-white p-4"
+		</form>
+		<!-- TODO: Reuse button as component, dont forgot about sr-only -->
+		<a
+			role="button"
+			class="
+				absolute
+				top-2
+				right-4
+				text-accent
+				hover:bg-accent hover:text-white
+				focus:text-white focus:bg-accent-light
+				rounded-full
+				bg-white
+				p-4
+				md:sr-only md:focus:not-sr-only
+			"
+			href="#open-basket-button"
 		>
-			<span class="sr-only">close basket</span>
-			<span class="menu-checkbox--opened">
-				<!--#include virtual="/parts/svg/button/screen-button-x.svg" -->
+			<span class="">
+				<span class="sr-only">close basket</span>
+				<span class="">
+					<!--#include virtual="/parts/svg/button/screen-button-x.svg" -->
+				</span>
 			</span>
-		</span>
-	</a>
+		</a>
+	</div>
 </div>
