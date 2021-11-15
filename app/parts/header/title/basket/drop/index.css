@@ -11,10 +11,10 @@
 		max-width: none;
 		max-height: none;
 	}
-	.ie\:table {
-		@apply table w-full;
-		border-spacing: 0 1.5rem;
-	}
+}
+.ie\:table {
+	@apply table w-full;
+	border-spacing: 0 1.5rem;
 }
 @supports (display: grid) {
 	.not-ie\:h-full {
